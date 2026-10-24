@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<!--
+  Recovery Meter - a phone app made with HTML, CSS and JavaScript
+  This file has 3 parts:
+    1. <style>  at the top    = the look (colors, sizes, layout)
+    2. the HTML in the middle = the screens (what you see)
+    3. <script> at the bottom = the code (what happens when you tap)
+  Everything is in this one file: no other files are needed.
+  Works on iPhone and Android: open it in the browser, then "Add to Home Screen".
+  Note: this project was built with help from an AI assistant (Claude).
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Recovery Meter</title>
+
+  <!-- These lines make it act like a real app when installed -->
+  <meta name="theme-color" content="#101E47">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Recovery">
+  <!-- The app icon is stored right here as text (base64), so no icon files are needed -->
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAct0lEQVR4nO2d2ZNkx3Wfv8y7VVUv1T1Lz4LZFwAzACRSIG2QAqAI0RZgLaaCtkNW+EEMUw7K1qsf5L9AZNh8Ei2TDMCiLL7YQSqkUBCgTVIh2CIYIQoABc4KzNbTM+iZ7plea71Lph/yVvVWvU5V9+25+UVUzFJVt+5yfpknz8mTKYaOvaKxWHKK3OkTsFh2EisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS66xArDkGisAS65xd/oEsoHo8H9628+it+ThGjdPDgUgEEJgDEIbE1Bx628LnxIShJOajTDva7XdJ7s1hEQsvj6doHWy/EMI4Sy9F1qTN1HkRADG6DWgVYRKIrSKEdIFBK43gHA80OnDF4IkrqHimjEKrRDSRUofIR2AzBmLEMab1Vqh4jpaxSAEQkikW8L1+heuz3ySKJwFpdA6BuEgpYdwfCOHjF1fr3i8BSAEAoFKIpKkgZAuXjBMceAYxcGTlAZP4LhF/MJ+pFdqt/BCSKLGNFE4RxxOU5u7RW32Jo3qXeJwFhA4ToCQ7g4bSipsrUjiGlonOF4/fUNPUSqfIiiNEJQO4fllvMIwut2DCbROCGv3icJZmpW7NGrjVGc+JKxPonWMlAHS8dMeZJf0fFtADB175fGTuRAIJElSR6uEoHSAgT3PUB75BKXyKbxgCCE90AqNNq2lViz4yRohHJAOAglCoOIGYeMhlenLzE68Q3X6KlFzGukWkNJPjWv7bqUQDkpFqKSO45To33OOoYMvUBo8RaH/CaQTmCvRCaiWC7RwfSAQ0jMukHBAJ0TNaerzo8w/vMj0vR/TrN1HCIF0S+nXHj8hPHYCEMJBJQ1UElIqn2L/8V9laOR5XL8MaFTSRKsEzYLBGz94GZpF4wKNEBIhvbaxh/VJpj56iwdjPySsT+C4fWmPsNzX7vb1SdPiR1X84j7KI59g75HPUBo8jpAeKgnRKkx7pvQ7iI5j4IXPGEFI6RoXSDjEzVlmJv6Oh3ffojr9AQCOW+z59W03j40AWoYRRxVKAycYOfnrDB/8FI5XIolNT2A+1xr0bQXdNhopPaRbIKxP8vDOXzM5+j2icAbXG+iZWySEQxLXkI7H8KEXOXj6cwSlQ+gkNMJGd+n6NEJ6OE6A1prpez/i/vW/oDZ/C8ctte/148BjIQAhHJKkjhQeIyd+lZETv44blEmiKlqr9gCxu2i0Vkjp4bh91OdHGb/2babH/xbhBEjpdtFIBEJAHFboH36aJ879Dv3D51BxHaXCtpvWXYwYBOB4fSRJg4mbf8X9G3+J0jGO83j0BrteAEI4xNE8hb4jHHv2iwzue444qpgoj3C24QxSITgB0gl4cPv73L36P0jiZldcBiEkSsXoJGTk5K9x+OxvI6RLEtdSYXfb8FfSakQcb4D5hz/j9oWv0ajewfUGd70IdrUAhJDEUZXy/o9x/Lnfxw2GSKLKthnGErRGo3D9MpXpK4y+/1WatXs4bmnLRiKERCUhjlvk6PkvMHz4JZKo0sNebW1MlKmPOJxn7NJrTI+/jev172p3aNcKQAiHOJxl/7FXOPrsF9FJE6XiHTGMxWid4Lgl4qjCjXe+RGXmg3RcsDkRGONv4rglTj//B/TvOUfUnNmmXm11tE7M+McpcPvC15i8/b9x/fKu7Ql25Vyg5cbfSvzstPG3zi2JazhuiVPP/wH9Q0+mvdLGDXe58fcNPUnUmN5x4zfn5qBVTBLXOPrsF9l/7BXicDYT934r7Lqzbhn/3qP/pG38oCFDD8CEYs0Y4PTz/4ni4EmSuLpBAxYoFS0x/jiaT7PWGUFIQKPiOkef/SL7jr1CvEmRZ4XsWM0GEEKSxFX6h89x5NznTehvSQIrO7Rbca+f48/9e1xvAKVC1j1XAToJOXr+C/TvOUcczmXUsMz8IRU3OHr+CwwMnyeJNiry7LCLBCBQKsb1Bzn+c79vYtQZcXtWw7hDFUrlMxw9/wW0itYMVwrhkIQVk8M4/BJRYyZbLf8KRNv3P/bc7+EGgygVkcUGaTWyaz3LEEKgkgZHzn2eQv8RkrieaeNvIYRL3Jxl+PBL7D/2KskqLbrp3Wr0Dz/N4bO/bcYNcjdcn0QlDQr9R9JeudE5s55Rsn+HaYU7K+w5/DLDh14kDud3VVcrpHHdDp35VxQHTxgjWdZKtpJqT5z7nXRKRTZdu06Ycdk8w4deZM/hl3fVeGBXCEBrheOWOHDqs7Arw20CrWLcoMzIid9AJeESV0gIhySqMnz4RfqHzy1Kcu0ydMKBU59NE4Axu0HAmb/LbeM49GlKgyd2jeuznPZ1HHyBUvmUmZ6NSdgpFeIX93Hw9OdQu/b6JElcpzR4kpHjv0YS7Q4RZ/4MtY5xvH72H3sVncQ9mPOyfbQyqfuP/7O0YCX1oeMG5ZFPEJQObSxSlFXSzPXwoV/E8frTXiDbZFoAptWsMXTgHy1rNXcnresZPvgCxYHjJEkTUDhukb1Hfhmtwl0tcFN81KQ4cIyhA59Me4FsjwUybU0ahZAew4d+cdem2pfT6tGGD74AKiZJmvTvOU9p8AQqbu5qgbfQKIYPvYiQXlp3kV0yfLcFKgkpDhylf/hpYxy7wKdcF2F8/vLIJ3G8PrSKGT74wq4wlo1gXLom/cNPUxw4agb8GXbpMmtRQkh0EtFXPvNYVSIJJDqJCUoH8EsjCOlTKp9GJeHjIXBaEwKL9JXPoJMo09eV2TNrVTcN7Pv5FUuW7Ha0jnH9AfrKZyn0HaLQfxSd7K4M6npoNAP7fj5djSO7zy+jeXZhfGV/gOLAMbSKMptdTOeFpf/YaN24QGtNceAESidIxzexf7I9YNwoQgi0iigOHMPxB9KqNYcsLrOSUQEAKsErlHG9AVAZ9I3NXDDCqkQ65sGqROAVVfu9tdA6wS/uRanmri4oWRWlcL0BPL9Ms3YPZDbFnUkBCCFQKsEv7MHx+lBxI1vhQWES0kLC6c/Ms/fJJgAPPwi4/XafeW+NBq/VQgalgyZennE/efOIds7DL+yhUbmLdMSSlSqyQiYFYFB4xf2LfIyMCCB1cxxP8/F/O8X+p5skoTm3A8812P9Mg/f++x6SWCx1j5ajFdIp4Ar52Azwl2JqNLzifshwdCujzY5Z7SwojpgKpAz5jkJA0hCceXWekXNNGjOSuCGIG4LGjGTkXJPTvzJP0hRrdFrm+hyvhB8ML1u06vFAp4uLBcWRTE/sy3APQPZS6QKSpmDwSMTRf1yjOS+NayvabxPVJPuebOIW9PoDYq0zJe5ekLlnuIyM9gAtstVqCAFJLDj+cnXBwBefooQkhr6RhPLRkCQUWarU3CGy9QyXk/HHk6Gbl7b+5aMhhz5WJ6qv4uJocHzFnjMhKs7Q+e8Y2b4HmRaA6T6z4SK0W/+XqnhFtbL1X4SKBXtOhzi+Xvv0tdrcAFiYmECWAmJro60LtDXMAKo+P4rWyc5PEFvR+stVjVBISELz2f6DEUlEh7usEdIhjio065NI6bGe0IU0worqgrjZWtT3US+sdwhMdKs+P5rOCM1GQ7acjAoAEJI4rKCTnZ8ivJnWH0yY1Csp9j3VJAllx4+aJR0rRI0HGzKQqCYoDieMPNNg+FSIVhBneYwhBDoJicNKppasWU4mo0Baa4R0CeuTxFElXVlth0rsNtH6L0bFgpHzDW691bciDG6uz6NZHac2f5Phg59Cx3rV46oEzr46z4mXq7hFhdYwe9vn0nfKzN31NhZx2la0WQwgmiesTy7aSCR7ZFSaut1ChvWHO3oDN9v6t78TCfoPxRSHE5IVYX6z30DYmKRR/cjkjDocVEiI6pLTn6lw7jdnEY4mbgiSpmD4ZMgnf+8hpX2xyTlk6EkuNGAPFxXIWwFsCiEcVFynMn05XRtnB27gFlv/1lQJvy9hz+nQuEFi8dumdHB24l3mJt4jbEyaHWsWXaOQEDcE+881OPMr89SnnfYCeEJCWBV4fYrn/vUMwukQkt1RjAAq05fTGudszgOCDAug1QtUpi6YBbB24FS30vovOwL7n2kg5LJokJAkUZXyyPMcOPnPSaJax3GOSgSHf6GOdFub9y28Jx2Ia4J9TzY59ZkKYVVmphcQSLSKqUxdyHTrDxkdA0DajTo+tblRmvUJ/GAvWm/jnPmNtv6LpkIv+Xr6/eGTIaW9MY1Zh4WOzIwBDp76HEKIdAebRdcmjN9fGDQ9SBx2/m3TE0hO/XKFhx8ETN/0MzAeSMc39Qlqc6MIx8+s/w8Z7wGk9IgaD5i9/xOkW9jWacMbav01SFd3nvmZGnEwmLD37Eo3CDRxNE8Uzq4Y4C8Xj1pt/J9OzBOO5tnfmjED5B2eVqS1QroFZu//hKjxYEMh3p0kwwIA0l5gevxv0yXGt6nD2kDrrzU4gWbqRsD8uLt60ksL9j3dQIiV7wshUxeh0w52q7hPy09Vmsl5A4cizr46v/FxSo8wq8TNpVtF+cv2Js4emRaARuE4Baoz15i+92Mcb+u7rWyGjfr+QsIH3x1k4kIBx9crnrUQoCJB+YmYYECZup71jDPtOfyBhL1nOvUcHb7iGFfo+EtVDn+iRlTbmaiQqQEoUZm6RHX2OtIpZL7QP9MCAEzkw/GYHH1ze5bf3kjrr8AraB5cCZi67jN9MyBuyJV3U5jJcaV9McMnw3WmSKdfSX9/5HzDhDg3OOwRgI4F5z47R2Eo2fD3uolZ96jOxK2/QggXke3GH9gFAmj1ArXZG2kv0N/TXmBDrb8wPfvNt/qRLlTuu9RnHJxOYwENQmr2P9NA6w1YZFr7c+DnGps8cUgiKAwlnPvNOXTcKbPQO1q71E/fe5v5hxdw3Oy3/rALBAAmIiTdAveufZuwPpHugt6Dm7uZ1v9qwIMrAV5fQnPOYeq6j+Orjm5QEkr2nmlSKK8xoG39fgylvTFDJ9boMVbZhlhIM2Xi8PM1jr9UNaHRbQnBm10yw/oE9659G+kWMx35WUz2BCBASLnsBY4bEDYn+ejDbyFdHyEEQuh2YqgbL+lsvPW/9VY/Wrfe1kxeLKCV6Pj5JIbinoTBJ2KSaHU3qC2WsyHBYILqFNHRxudfrdxSCJM9PvvqPAOHIpKGQDrm/7t5r9ovYZavka7PRx9+i7A5ieMG6ftLn2N2EnULZCsPIEDFirjR7Pzgpcf41e/jyCc4ePpfdLVYXsi09T8Wcejja7T+Rc3klYAHVwO8gkYpgRNopm/61B66FMrJylZeg3Q0e840mbhYYNWwTstdOt+AVdwl4WoaUy7S1/h9CTpZJro0C+0WFc/+1gx/98d7CatmUNyTRlmD9IrcvfJtxq/+H1y/TFyvdnx+bsFDujJTUdHsCEAIVJxQHCpx4KknUIlamVwi7f3Vewwc+RhB3yGUijrOo9nCzxM1BCd+qYrra1Pw0mFQu7j1RwDK9BzNOYeH13yOfapKEi2f+gAqluw/1+T691XnRNUi92e1AbNW4Pdprv19kca0y8c/P0VzbuXnWtMo9p5p8tRvzHHvH4p4xV4kyMykt6h5h7nK+5w9+LzJAi+3cA3Skdy/epf6TA3pOpkJj2ZGAEII4mbEyFOH+Tff/A+E1SZCrm7YKmkC97t+HloZ41lu/J1a/8UGpYGZmz5HP1VdeVAJcQj9ByLKRyKmbqzM2C64P3WCwYSo09QGAXFTMnPTZ+JSgZFnG2as0iHsacYDJjR64uUO59RNtObT7r9jNR9HK43fF/Ctz/9Xrv/fywRedmaHZkYALbTShNXmugLoZban46E7tf7pM9RpGeTDaz7NOQfX7zA5TYPjm2jQgw8DVvgB67k/ChwfKvdc5u74eCXN5b8YZPhEiN+nOg+uBe0lW3qLgGa46rta6SV/ZonsDYIBIcX6L0HPXstZEvnp0PqjwXGh9tBl+qaPE6xMioGpERg+EeJ4atnkuA24PxiRPbgaEFYlbqBoTDlc/stBhLv62hK9vE9LXht4ZlkkkwLIHJ1a/06fUYLJSwUz7WH522mp5MDhiP4D8ZJSyQ1Ff9LWfPJSAelqtBJ4fZqP/r7E6P/rw+9Tu3P7tB3GCmAdtAI3WKP1b32u5QZ9GNCYdelUwtAulXx6WamkBrme++NB5Z7H7B3PTLtQ5je9ouLD7w0wP+6Znif7uadMkUkBaK3N0+3aiy29WsYkXb126w9tN6g+5TB318XxVneD9p9vLEyeW5Qn2Ij7E9UWDY7TnEBcl1z4n0PmXB0TBm2Lb4vXbl7dewZZGfQuJ3ODYITAcR0S1+mS39jazXwt6+10Gro91fnm3/Tz4IPVW/9FP4VKBFPXAkaeaaz4vfaKEUci+g9GVO65OIEmCR32Pb129Gex+7MYrcAtaKau+1z89hDP/MsZ/IImiYRJzG0Jnd6D7qSRtdI4rtPTwMVWyZYABKg4oTZTJaqFPPKeAALQCumWEMJsPr3uMTUgNUlTMj/uMf7TIvd+Wuw427PjV13F5OWA0/+0c4WWVuD3K/aeDZm97eMGCY6nOfwLNZPUWk47+rPU/Vl+TK+kGftxicp9l6Mv1Bg8EuL3K+iUnV7rGrRuT9OOwzljtI/YeGutiaMYFSeZywZnRgBaKfxCwL0LY7z22f9susxHtn9JkjQY2HOOkx//j+i4mSZpFsUwO31PGFelOW/S915hfeMHQIHrQ+W+MdY9p8JVcgqC4ZNNpNdHHEr6D0YMHok6LqXYdn8+MO6P3985kdYSwcyoz9T1AL9P4QYr5yatzsI9kW6BsYuvM33vbZxuTGnWJs8T1pr4hQCdof0eMiMAYEkP0L1DCiamf4KOXufoM79LEjfSXmAddQljUMDmBpaL3JV9Z5srfqdd7XXKVHvN3/XY/3QTr6QIKyt7jdbKEOPvFZHe2kvpagWuryHQ6MTUCGwGrTWuN8Ct977BxK03cb1+NJVNHWMtpFwlzryDZEsAkI4BZNemiwhAegNMjr2B4wccPf+7xM3p9Xcs0Zs0/EVI18wNSqIOE8DEQqnkntMhc3c99p9vdFxHtO3f3/CZv+stJNjWOu3WAFawqaIYrRL8QpmJ0Td4cOdN/FLZDF43fog1EZDJgfBjHwXSWqNVghsMMXHrDSZG38Dxy2iVrB0B2eq5K5PxnR/3qNx3cTxWnbm978kmg4djyqu4P2DENHmpQBJtzpc3J7Oxl05iXL/Mg7EfMnbhNRy3H610159DFsmkAHqC1kgnYOzCN3h454e4LRH0ACEhqkoeXAlMjcDy94UplRw4FHHkhWrHgW37ODXJg6udj9MNtE5w/UEq05e5c+lPEE6QCi2bBttt8iMA0uiGE3Dn0p9Qmb6M6/euuqzdcocdWu50kB0MJRz7dJW4w8purZ5k9o5H5Z63Zk+yVcx+viWqMx9w450vo3SElC5Zmam5HeRIAKC1QkoXpSNuvPMlanO3cNy+rotgifHeX914hWDNiq01RfSo55juURZHFW69/0fEUQUpAx7LHSvXIFcCgJYIAuKowujP/pgkqiCd7j94IU2Gdva2h+Ot4b6s8kYv3Z9WQ5DENW688yWatfs47vasuJE1cicAaHX9fdTnbnL9nT8kietI6Xa/9ROmBe9YKrnW+fXU/TGuoHQK3Ln0OvNTl3vSC+4WcikASEXgDzA/dZk7l15HOgXEmvuabvb4LCmVdDa5vm/P3B8N0vG5feHrTI3/CC8YIuu7uPSS3AoAQKsYLxhiavxH3L7wdaTjdy/4oZeWSnZaMWI1euX+aG3Cwfeu/zkTo99N913IZ8vfItcCgNQovAEmRr/Lvet/jhsMddcohGbiYgG1vHh9tfPpkfvTus7J0TcYv/ad7l/nLiX3AoCFlnH82neYHH2jay2jqRHQzN72aM45Jvm8geZcuprJy91zf7Q2Pd30vbcZvfC17vZ0uxwrgBapbzx64WtM33vb+MbqEX3jRW7Q7Ji3/oxSbcKiYcVh8lKwKbdp1UOmA/7K1GXGLr7W9bHObscKoM1CdGTs4mtUpi7j+F3oCdIagYmLBdZbLFNrU3328JrP/Eep+/Mo0zLSRFezdp/r73yJJK71Jtq1i7ECWMTi+Pj1d/6QehcSZQulkv7G3KBW6FQ/mvuzON/RTnQ527vHwm7ACmAZizOkXUmU6bRU8qHL9I3VV4xYEjX6cHNRow4XsSjj/WWqMx/kNtG1HlYAHeh6oix1g6ZvBmbDi46/aQbMW80bLDqSmQrtBNy9/M10ztOgNf5VsAJYhW4myjQgUzdoSVH7MoSztczx0vPWOF4/Yxdf48HYD9JZr/lNdK2HFcAadC1RpsD1oDLuMfdRGg1a1CBrBdKD2gOXycvBJksZFx1HJ3h+mcnRN5kcfdO2/BvACmAdupYoSxfXuv79AbPce7qGTyvx5XiaC/9raNlukps/z8nb32Ps4uvpRiI21LkeVgAbYGWibPN1BO0Ftq4EvPenwzRmHNyCxi1oGjMO7/3psFl4awurOC8UtVxi7NLrSDdovbO5A+WQ7NUEZ5VFk8i8wj7KI88Th7ObWjunFecff7fI1IcBg0ciAObueDTn5ZaN33FLVKevcuPd/wLpkiY23LkxbA+wYbQxLidg9GdfpTp9ZUuhRa3NahNxKJi8EjB5JSAOBV5pg0uvLDmW2T9taVGLb41/E1gBbIY0URZHVa4/QiGJVqYazCtqvKI2a09t1mZb5xJXufHOl3Nd1PIoWAFsks6t7tYSZa1B8BbOYqE3ev+rVKYvW+PfIlYAW6BTMbnYzjk26Xhk7MI3mJ38qYn1W+PfElYAW2TJciKXv4l0gm2ZZbmyqKW3+yY/7lgBPAJamQWlHo79gLEL3zD7F/cw9m6LWrqPFcAjYnoCs6TgxK03emaUtqilN1gBdAGtFW5Q5u7VPzNTELrsltiilt5hBdAVdDowDbh94etdHZjaopbeYgXQNbqTKFtyRFvU0nOsALpJlxJlYIxf2KKWnmMF0GW6kyhr1ScH3LFFLT3FCqAHPPKqy4uXcrdFLT3FCqBHLE6U3b38zQ2vu99KdLU287BZ3t5iBdBDWomyB2M/YOzia+sWqSwkut7k7tU/ww3KdsDbY6wAekyrJ2iVKXqrtOitz823ilraiS4b6+8lVgDbwEKh+utM3v7eiqUXW2OGyvQVbr77lXZRizX+3mMFsC0YQ5ZuwNil15mfvtSO6pioUZGoOcPN975CHFeQ0rOuzzZhBbBtaNOqC8nNd79CZfoKjlNECEkcVbj53leImjM4TtEa/zZiBbCNmMyuRxynBh/OmI2p3/8jW9SyQ9ii+G2m7fI0phj92X8jKI0w9+AfbLhzhxBDx16xI62dQAhUEoJOkG6xp3UEltWxPcBOoTXS8REI6/PvIFYAO4nWaBvq3FHsINiSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnGCsCSa6wALLnm/wM13tOBRRfMhgAAAABJRU5ErkJggg==">
+
+  <style>
+    /* ============================================================
+       THE LOOK (CSS): all the colors, sizes and layout for the app.
+       Main colors:  background #101E47   cards #213B8A   buttons #3D5FE0
+       ============================================================ */
+
+    /* ---------- Basic page style ---------- */
+    body {
+      margin: 0;
+      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #101E47;
+      color: #E2E9FF;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* "safe-area" keeps things away from the iPhone notch and home bar */
+    .page {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 16px;
+      padding-top: calc(16px + env(safe-area-inset-top));
+      padding-bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+
+    h1 { margin: 0 0 4px; font-size: 26px; }
+    h2 { font-size: 18px; margin-top: 0; }
+    .subtitle { color: #A9BFF8; margin-top: 0; }
+
+    .card {
+      background-color: #213B8A;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #A9BFF8;
+      font-size: 14px;
+    }
+
+    /* font-size 16px stops iPhone from zooming in when you tap a box */
+    input[type="number"], input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    input[type="range"] { width: 100%; }
+
+    /* 44px tall = easy to tap with a finger */
+    button {
+      min-height: 44px;
+      background-color: #3D5FE0;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:active { opacity: 0.7; }
+
+    .big-button { width: 100%; }
+    .small-button { min-height: 36px; padding: 6px 12px; font-size: 14px; margin-right: 6px; margin-top: 6px; }
+    .delete-button { background-color: #B5452E; }
+
+    /* User bar at the top */
+    .user-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1D3350;
+      border-radius: 10px;
+      padding: 6px 6px 6px 12px;
+      margin-bottom: 14px;
+    }
+    .user-bar.hidden { display: none; }
+    .user-bar .small-button { margin: 0 0 0 4px; padding: 6px 10px; }
+
+    /* One user in the "Who's using the app?" list */
+    .user-row { display: flex; gap: 8px; margin-bottom: 10px; }
+    .user-row .pick-user { flex: 1; text-align: left; background-color: #2E50B3; }
+    .user-row .pick-user small { font-weight: normal; color: #C9D6FF; }
+
+    /* "Back" button at the top of the History page */
+    .back-button {
+      background-color: #1D3350;
+      border: 1px solid #34508A;
+      margin-bottom: 14px;
+    }
+
+    .sport-grid, .sore-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .sore-grid label {
+      background-color: #1D3350;
+      padding: 12px;
+      border-radius: 8px;
+      color: #E2E9FF;
+      margin: 0;
+      font-size: 16px;
+    }
+    .sore-grid input { width: 20px; height: 20px; vertical-align: middle; margin-right: 6px; }
+
+    .timer-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .timer-number { font-size: 36px; font-weight: bold; min-width: 56px; }
+
+    .result { padding: 16px; border-radius: 14px; margin-top: 16px; line-height: 1.5; }
+    .result-good { background-color: #1B7A6C; }
+    .result-bad  { background-color: #7A2E1B; }
+
+    .history-item { border-bottom: 1px solid #34508A; padding: 12px 0; line-height: 1.5; }
+
+    /* Trend graph */
+    #trendChart {
+      width: 100%;
+      height: 220px;
+      display: block;
+      cursor: pointer;
+    }
+    #trendSummary { margin-top: 0; font-weight: bold; }
+    #trendInfo { min-height: 18px; }
+    .history-item:last-child { border-bottom: none; }
+
+    .hidden { display: none; }
+    .small-note { font-size: 13px; color: #A9BFF8; line-height: 1.4; }
+
+    /* ---------- Bottom tab bar, like a real phone app ---------- */
+    .tab-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      background-color: #0B1638;
+      border-top: 1px solid #34508A;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .tab-bar.hidden { display: none; }   /* needed because .tab-bar sets display: flex */
+    .tab-bar button {
+      flex: 1;
+      background: none;
+      border-radius: 0;
+      color: #A9BFF8;
+      font-size: 13px;
+      padding: 8px 0 10px;
+    }
+    .tab-bar button .tab-icon { display: block; font-size: 22px; }
+    .tab-bar button.active { color: #7FE0C8; }
+
+    /* Install tip box */
+    .install-tip { border: 1px dashed #7FE0C8; }
+
+    /* Warning boxes (saving blocked, something went wrong) */
+    .warning-box { border: 2px solid #FF9A80; line-height: 1.45; }
+
+    /* Box to copy a report from, when the phone can't share or copy it */
+    #copyBox {
+      width: 100%;
+      box-sizing: border-box;
+      height: 150px;
+      font-size: 16px;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    /* ---------- Tablets: two columns ---------- */
+    @media (min-width: 800px) {
+      .page { max-width: 900px; }
+      .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .sport-grid, .sore-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <h1>Recovery Meter</h1>
+  <p class="subtitle">Know when to push. Know when to rest.</p>
+
+  <!-- Shows how to install, only when opened in a normal browser tab -->
+  <div id="installTip" class="card install-tip hidden">
+    <b>Install this app:</b>
+    <span id="installText"></span>
+  </div>
+
+  <!-- Shown only if JavaScript can't run, for example in the iPhone Files preview -->
+  <!-- This message is shown by default. The first line of the code hides it.
+       So if the code can't run (like the iPhone Files preview), the message stays. -->
+  <div id="noCodeMessage" class="card warning-box">
+    <b>This app can't run in a file preview.</b>
+    Previews (like the iPhone Files app or an email) show the page but don't run its code.
+    Open the app's website link in Safari or Chrome instead.
+  </div>
+
+  <!-- Shown only if the browser won't let the app save anything -->
+  <div id="storageWarning" class="card warning-box hidden">
+    <b>Saving is blocked in this browser.</b>
+    The app will work, but your sessions will be lost when you close this page.
+    Open the app's website link in Safari or Chrome (not from an email, a file preview, or a private tab).
+  </div>
+
+  <!-- Shown if something in the code goes wrong, instead of the app just freezing -->
+  <div id="errorBox" class="card warning-box hidden"></div>
+
+  <!-- Who is using the app right now (shown at the top of most screens) -->
+  <div id="userBar" class="user-bar hidden">
+    <span>👤 <b id="userNameText"></b></span>
+    <span>
+      <button class="small-button" onclick="showUserScreen()">Switch user</button>
+      <button class="small-button" onclick="showAddUserScreen()">+ New user</button>
+    </span>
+  </div>
+
+  <!-- ===================== SCREEN: CHOOSE A USER ===================== -->
+  <div id="userScreen" class="card hidden">
+    <h2>Who's using the app?</h2>
+    <div id="userList"></div>
+    <button class="big-button" onclick="showAddUserScreen()">+ Add new user</button>
+  </div>
+
+  <!-- ===================== SCREEN: ADD A USER ===================== -->
+  <div id="profileScreen" class="card hidden">
+    <h2>Add a user</h2>
+
+    <label for="nameInput">Name</label>
+    <input type="text" id="nameInput" placeholder="Your name" maxlength="30">
+
+    <label for="ageInput">Age</label>
+    <input type="number" id="ageInput" inputmode="numeric" placeholder="e.g. 16">
+
+    <button class="big-button" onclick="addUser()">Continue</button>
+    <!-- Cancel only shows if there is already at least one user -->
+    <button class="big-button back-button hidden" id="cancelAddButton" style="margin-top:10px" onclick="showUserScreen()">Cancel</button>
+  </div>
+
+  <!-- ===================== SCREEN 2: PICK A SPORT ===================== -->
+  <div id="sportScreen" class="card hidden">
+    <h2 id="greeting">What are you playing today?</h2>
+    <div class="sport-grid">
+      <button onclick="pickSport('Running')">Running</button>
+      <button onclick="pickSport('Basketball')">Basketball</button>
+      <button onclick="pickSport('Soccer')">Soccer</button>
+      <button onclick="pickSport('Football')">Football</button>
+      <button onclick="pickSport('Weightlifting')">Weightlifting</button>
+      <button onclick="pickSport('Swimming')">Swimming</button>
+      <button onclick="pickSport('Tennis')">Tennis</button>
+      <button onclick="pickSport('Other')">Other</button>
+    </div>
+  </div>
+
+  <!-- ===================== SCREEN 3: NEW SESSION ===================== -->
+  <div id="newScreen" class="hidden">
+    <p>Sport: <b id="sportLabel"></b>
+      <button class="small-button" onclick="showScreen('sportScreen')">Change</button></p>
+
+    <div class="two-columns">
+      <div class="card">
+        <h2>Session</h2>
+
+        <label for="durationInput">Duration (minutes)</label>
+        <input type="number" id="durationInput" inputmode="numeric" placeholder="e.g. 60">
+
+        <label for="effortInput">How hard did you push? <b id="effortText">5</b> / 10</label>
+        <input type="range" id="effortInput" min="1" max="10" value="5" oninput="updateEffortText()">
+
+        <br><br>
+        <label for="peakInput">Peak heart rate (from your watch)</label>
+        <input type="number" id="peakInput" inputmode="numeric" placeholder="e.g. 175">
+      </div>
+
+      <div class="card">
+        <h2>1-minute recovery check</h2>
+        <p class="small-note">Start the timer as soon as you stop exercising. Stay still until it ends.</p>
+
+        <div class="timer-row">
+          <span class="timer-number" id="timerText">60</span>
+          <button id="timerButton" onclick="startTimer()">Start 60s timer</button>
+        </div>
+
+        <label for="oneMinInput">Heart rate after 60 seconds</label>
+        <input type="number" id="oneMinInput" inputmode="numeric" placeholder="e.g. 145">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Which areas are sore?</h2>
+      <div class="sore-grid">
+        <label><input type="checkbox" id="soreLegs"> Legs</label>
+        <label><input type="checkbox" id="soreArms"> Arms</label>
+        <label><input type="checkbox" id="soreCore"> Core</label>
+        <label><input type="checkbox" id="soreShoulders"> Shoulders</label>
+      </div>
+    </div>
+
+    <button class="big-button" id="saveButton" onclick="saveSession()">Save &amp; see my result</button>
+
+    <div id="resultBox"></div>
+
+    <p class="small-note">Recovery Meter - student project</p>
+    <p class="small-note">This app is a training log, not medical advice. If you feel chest pain, dizziness, or can't catch your breath, stop and tell a coach, parent, or doctor.</p>
+  </div>
+
+  <!-- ===================== SCREEN 4: HISTORY ===================== -->
+  <div id="historyScreen" class="hidden">
+    <button class="back-button" onclick="showScreen('newScreen')">← Back to New Session</button>
+
+    <!-- Trend graph: only shows when this person has 2 or more sessions -->
+    <div id="trendCard" class="card hidden">
+      <h2>My recovery trend</h2>
+      <p id="trendSummary"></p>
+      <canvas id="trendChart"></canvas>
+      <p class="small-note" id="trendInfo">Tap a dot to see that session.</p>
+    </div>
+
+    <div class="card">
+      <h2>My sessions</h2>
+      <p id="averageText"></p>
+      <button class="small-button" onclick="exportCSV()">Export CSV</button>
+      <button class="small-button" onclick="document.getElementById('csvFileInput').click()">Import CSV</button>
+      <!-- hidden file picker, opened by the Import CSV button -->
+      <input type="file" id="csvFileInput" accept=".csv,text/csv" class="hidden" onchange="importCSV(this)">
+      <!-- A report to copy by hand, shown only when sharing and copying don't work -->
+      <div id="copyArea" class="hidden">
+        <p class="small-note">Your phone can't share from here. Press and hold the text below to copy it:</p>
+        <textarea id="copyBox" readonly></textarea>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom tab bar (hidden until the profile and sport are set) -->
+<div id="tabBar" class="tab-bar hidden">
+  <button id="newTabButton" class="active" onclick="showScreen('newScreen')">
+    <span class="tab-icon">＋</span>New
+  </button>
+  <button id="historyTabButton" onclick="showScreen('historyScreen')">
+    <span class="tab-icon">☰</span>History
+  </button>
+  <button id="usersTabButton" onclick="showUserScreen()">
+    <span class="tab-icon">👤</span>Users
+  </button>
+</div>
+
+<!-- ===================== THE CODE (JavaScript) ===================== -->
+<script>
+// ============================================================
+//  Recovery Meter - the JavaScript code
+//  Note: this project was built with help from an AI assistant (Claude).
+//
+//  WHAT'S IN THIS FILE (in order):
+//   1. Global variables
+//   2. Users list      - where the users are stored, and bringing in old data
+//   3. Saving/loading  - each user's sessions are kept as CSV text
+//   4. Screens         - show one screen at a time
+//   5. Users screen    - add, pick, switch and delete users
+//   6. Sport           - the "What are you playing today?" screen
+//   7. Timer           - the effort slider and 60-second timer
+//   8. Saving a session and showing the result
+//   9. History         - list, edit, delete, share, export CSV
+//  10. Trend graph     - line graph of each session's heart rate drop
+//  11. Install tip     - how to add the app to the home screen
+//  12. Start-up        - what happens when the app opens
+// ============================================================
+
+
+// ============================================================
+//  1. GLOBAL VARIABLES
+// ============================================================
+
+let currentSport = "";      // sport picked on the sport screen
+let editingId = null;       // id of the session being edited (null = new session)
+let timerSeconds = 60;
+let timerId = null;
+
+const CSV_HEADER = "id,date,sport,duration,effort,peak,oneMin,drop,rating,sore";
+
+
+// ---------- The code is running, so hide the "can't run" message ----------
+document.getElementById("noCodeMessage").classList.add("hidden");
+
+
+// ---------- If something goes wrong, show a message instead of freezing ----------
+window.onerror = function (message) {
+  let box = document.getElementById("errorBox");
+  box.textContent = "Something went wrong: " + message + ". Try closing and reopening the app.";
+  box.classList.remove("hidden");
+};
+
+
+// ---------- Safe saving ----------
+// Some phone browsers block localStorage (file previews, some in-app
+// browsers, private tabs). Using it there stops the whole app.
+// So we check once if saving works. If it doesn't, we keep the data
+// in a normal JavaScript object instead (lost when the page closes).
+
+let storageWorks = true;
+let memoryStore = {};     // backup place for data when saving is blocked
+
+try {
+  localStorage.setItem("test", "1");
+  localStorage.removeItem("test");
+} catch (error) {
+  storageWorks = false;
+}
+
+function storageGet(key) {
+  if (storageWorks) {
+    return localStorage.getItem(key);
+  }
+  if (key in memoryStore) {
+    return memoryStore[key];
+  }
+  return null;
+}
+
+function storageSet(key, value) {
+  if (storageWorks) {
+    try {
+      localStorage.setItem(key, value);
+      return;
+    } catch (error) {
+      alert("Couldn't save: the phone's storage for this app is full.");
+    }
+  }
+  memoryStore[key] = String(value);
+}
+
+function storageRemove(key) {
+  if (storageWorks) {
+    localStorage.removeItem(key);
+  }
+  delete memoryStore[key];
+}
+
+
+// ============================================================
+//  2. USERS LIST
+//  The list of users is saved under "users".
+//  Each user's sessions are saved in their own CSV, like "workouts-1729123456789.csv".
+// ============================================================
+
+function loadUsers() {
+  let saved = storageGet("users");
+  if (saved == null) {
+    return [];
+  }
+  return JSON.parse(saved);
+}
+
+function saveUsers(users) {
+  storageSet("users", JSON.stringify(users));
+}
+
+// The user who is using the app right now (or null)
+function getCurrentUser() {
+  let currentId = storageGet("currentUser");
+  let users = loadUsers();
+  for (let i = 0; i < users.length; i++) {
+    if (String(users[i].id) == currentId) {
+      return users[i];
+    }
+  }
+  return null;
+}
+
+function setCurrentUser(id) {
+  storageSet("currentUser", String(id));
+}
+
+// The name the current user's CSV is saved under
+function csvKey() {
+  return "workouts-" + storageGet("currentUser") + ".csv";
+}
+
+// The first version of the app had only one user.
+// This moves that old data into the new system (only runs once).
+function moveOldData() {
+  let oldProfile = storageGet("profile");
+  if (oldProfile == null || loadUsers().length > 0) {
+    return;
+  }
+  let profile = JSON.parse(oldProfile);
+  let user = { id: Date.now(), name: profile.name || "Me", age: profile.age };
+  saveUsers([user]);
+  setCurrentUser(user.id);
+
+  let oldCSV = storageGet("workouts.csv");
+  if (oldCSV != null) {
+    storageSet(csvKey(), oldCSV);
+    storageRemove("workouts.csv");
+  }
+  storageRemove("profile");
+}
+
+// Older versions of this app saved sessions in different ways:
+//   "sessions"         - recovery-meter-simple.html (a JSON list)
+//   "recover_sessions" - the first improved version (a JSON list)
+// This copies those old sessions into the current user's history, once.
+// The old data is kept under "backup-..." just in case.
+function importOldBrowserData() {
+  if (getCurrentUser() == null) {
+    return;   // we need a user to give the old sessions to
+  }
+
+  let oldKeys = ["sessions", "recover_sessions"];
+  let added = 0;
+
+  for (let k = 0; k < oldKeys.length; k++) {
+    let text = storageGet(oldKeys[k]);
+    if (text == null) {
+      continue;
+    }
+
+    let oldList = [];
+    try {
+      oldList = JSON.parse(text);
+    } catch (error) {
+      oldList = [];   // the old data was broken, skip it
+    }
+
+    let newSessions = [];
+    for (let i = 0; i < oldList.length; i++) {
+      let s = sessionFromOld(oldList[i], i);
+      if (s != null) {
+        newSessions.push(s);
+      }
+    }
+    added = added + addSessions(newSessions);
+
+    // keep a backup, then remove the old key so this only happens once
+    storageSet("backup-" + oldKeys[k], text);
+    storageRemove(oldKeys[k]);
+  }
+
+  if (added > 0) {
+    alert("Added " + added + " sessions from an older version of the app.");
+  }
+}
+
+// Turn one old-style session into the new style (or null if it's broken)
+function sessionFromOld(old, number) {
+  let peak = Number(old.peak);
+  let oneMin = Number(old.oneMin);
+  if (isNaN(oneMin)) {
+    oneMin = Number(old.onemin);   // the first version spelled it "onemin"
+  }
+  if (!(peak > 0) || !(oneMin > 0) || oneMin >= peak) {
+    return null;
+  }
+
+  let effort = Number(old.effort);
+  if (isNaN(effort)) {
+    effort = Number(old.exertion);  // the first version called it "exertion"
+  }
+  if (isNaN(effort)) {
+    effort = 5;
+  }
+
+  // sore areas were a list in one version, and {Legs: 2, Arms: 0, ...} in another
+  let sore = [];
+  if (Array.isArray(old.sore)) {
+    sore = old.sore;
+  } else if (old.soreness) {
+    let areas = ["Legs", "Arms", "Core", "Shoulders"];
+    for (let i = 0; i < areas.length; i++) {
+      if (old.soreness[areas[i]]) {
+        sore.push(areas[i]);
+      }
+    }
+  }
+
+  return {
+    id: Date.now() + number,
+    date: toDateText(String(old.date)),
+    sport: old.sport || "Other",
+    duration: Number(old.duration) || 0,
+    effort: effort,
+    peak: peak,
+    oneMin: oneMin,
+    drop: peak - oneMin,
+    sore: sore
+  };
+}
+
+// Change any date into the "2026-10-16" style, so dates can be sorted
+//   "2026-10-16T22:30:00.000Z" -> "2026-10-16"
+//   "10/16/2026"               -> "2026-10-16"
+function toDateText(text) {
+  if (text.includes("T")) {
+    return text.substring(0, 10);
+  }
+  if (text.includes("/")) {
+    let parts = text.split("/");
+    if (parts.length == 3) {
+      let month = parts[0].padStart(2, "0");
+      let day = parts[1].padStart(2, "0");
+      return parts[2] + "-" + month + "-" + day;
+    }
+  }
+  return text;
+}
+
+// Add sessions to the current user's history, skipping ones already there.
+// Returns how many were added.
+function addSessions(newSessions) {
+  let sessions = loadSessions();
+  let added = 0;
+
+  for (let i = 0; i < newSessions.length; i++) {
+    let s = newSessions[i];
+    let alreadyThere = false;
+    for (let j = 0; j < sessions.length; j++) {
+      if (sessions[j].date == s.date && sessions[j].peak == s.peak && sessions[j].oneMin == s.oneMin) {
+        alreadyThere = true;
+      }
+    }
+    if (!alreadyThere) {
+      sessions.push(s);
+      added = added + 1;
+    }
+  }
+
+  // oldest first, so the history list and the trend graph are in order
+  sessions.sort(function (a, b) {
+    if (a.date < b.date) return -1;
+    if (a.date > b.date) return 1;
+    return a.id - b.id;
+  });
+
+  saveAllSessions(sessions);
+  return added;
+}
+
+
+// ============================================================
+//  3. SAVING AND LOADING
+//  The data is kept as CSV text inside the phone's browser storage
+//  (localStorage, through storageGet/storageSet in part 1).
+//  It stays there when the app is closed.
+//  CSV = one line per session, commas between the columns.
+// ============================================================
+
+function makeCSV(sessions) {
+  let text = CSV_HEADER + "\n";
+  for (let i = 0; i < sessions.length; i++) {
+    let s = sessions[i];
+    let row = [s.id, s.date, s.sport, s.duration, s.effort, s.peak, s.oneMin,
+               s.drop, getRating(s.drop), s.sore.join(";")];
+    text = text + row.join(",") + "\n";
+  }
+  return text;
+}
+
+function readCSV(text) {
+  let sessions = [];
+  let lines = text.trim().split("\n");
+
+  // start at 1 to skip the header line
+  for (let i = 1; i < lines.length; i++) {
+    let parts = lines[i].split(",");
+    if (parts.length < 10) {
+      continue;    // skip broken lines
+    }
+    sessions.push({
+      id: Number(parts[0]),
+      date: parts[1],
+      sport: parts[2],
+      duration: Number(parts[3]),
+      effort: Number(parts[4]),
+      peak: Number(parts[5]),
+      oneMin: Number(parts[6]),
+      drop: Number(parts[7]),
+      sore: parts[9] == "" ? [] : parts[9].split(";")
+    });
+  }
+  return sessions;
+}
+
+function loadSessions() {
+  let text = storageGet(csvKey());
+  if (text == null) {
+    return [];
+  }
+  return readCSV(text);
+}
+
+function saveAllSessions(sessions) {
+  storageSet(csvKey(), makeCSV(sessions));
+}
+
+// Today's date as text, like 2026-10-16 (no commas, so it's safe in a CSV)
+function todayText() {
+  let d = new Date();
+  let month = String(d.getMonth() + 1).padStart(2, "0");
+  let day = String(d.getDate()).padStart(2, "0");
+  return d.getFullYear() + "-" + month + "-" + day;
+}
+
+
+// ============================================================
+//  4. SWITCHING SCREENS
+// ============================================================
+
+function showScreen(screenName) {
+  let screens = ["userScreen", "profileScreen", "sportScreen", "newScreen", "historyScreen"];
+  for (let i = 0; i < screens.length; i++) {
+    document.getElementById(screens[i]).classList.add("hidden");
+  }
+  document.getElementById(screenName).classList.remove("hidden");
+
+  // show who is using the app, except on the user screens
+  let user = getCurrentUser();
+  let showUserBar = (user != null && screenName != "userScreen" && screenName != "profileScreen");
+  document.getElementById("userBar").classList.toggle("hidden", !showUserBar);
+  if (user != null) {
+    document.getElementById("userNameText").textContent = user.name;
+  }
+
+  // the tab bar only shows on the New and History screens
+  let showTabs = (screenName == "newScreen" || screenName == "historyScreen");
+  document.getElementById("tabBar").classList.toggle("hidden", !showTabs);
+  document.getElementById("newTabButton").classList.toggle("active", screenName == "newScreen");
+  document.getElementById("historyTabButton").classList.toggle("active", screenName == "historyScreen");
+
+  if (screenName == "historyScreen") {
+    showHistory();
+  }
+  window.scrollTo(0, 0);
+}
+
+
+// ============================================================
+//  5. USERS SCREEN: CHOOSING, ADDING AND DELETING USERS
+// ============================================================
+
+function showUserScreen() {
+  let users = loadUsers();
+  let list = document.getElementById("userList");
+  list.innerHTML = "";
+
+  for (let i = 0; i < users.length; i++) {
+    let u = users[i];
+    let row = document.createElement("div");
+    row.className = "user-row";
+
+    // button to pick this user
+    let pickButton = document.createElement("button");
+    pickButton.className = "pick-user";
+    pickButton.textContent = u.name + "  ";
+    let ageText = document.createElement("small");
+    ageText.textContent = "age " + u.age;
+    pickButton.appendChild(ageText);
+    pickButton.onclick = function () { switchToUser(u.id); };
+
+    // button to delete this user
+    let deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = function () { deleteUser(u.id); };
+
+    row.appendChild(pickButton);
+    row.appendChild(deleteButton);
+    list.appendChild(row);
+  }
+
+  showScreen("userScreen");
+}
+
+function showAddUserScreen() {
+  document.getElementById("nameInput").value = "";
+  document.getElementById("ageInput").value = "";
+  // only show Cancel if there is a user list to go back to
+  document.getElementById("cancelAddButton").classList.toggle("hidden", loadUsers().length == 0);
+  showScreen("profileScreen");
+}
+
+function addUser() {
+  let name = document.getElementById("nameInput").value.trim();
+  let age = Number(document.getElementById("ageInput").value);
+
+  if (name == "") {
+    alert("Please enter a name.");
+    return;
+  }
+  if (age < 8 || age > 100) {
+    alert("Please enter an age between 8 and 100.");
+    return;
+  }
+
+  // don't allow two users with the same name
+  let users = loadUsers();
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].name.toLowerCase() == name.toLowerCase()) {
+      alert("There is already a user called " + users[i].name + ".");
+      return;
+    }
+  }
+
+  let user = { id: Date.now(), name: name, age: age };
+  users.push(user);
+  saveUsers(users);
+  switchToUser(user.id);
+}
+
+function switchToUser(id) {
+  setCurrentUser(id);
+  importOldBrowserData();   // bring in sessions from older versions, if any
+
+  // forget anything from the last user's form
+  editingId = null;
+  document.getElementById("saveButton").textContent = "Save & see my result";
+  document.getElementById("resultBox").className = "";
+  document.getElementById("resultBox").textContent = "";
+  clearForm();
+
+  showSportScreen();
+}
+
+function deleteUser(id) {
+  let users = loadUsers();
+  let user = null;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id == id) {
+      user = users[i];
+    }
+  }
+
+  if (!confirm("Delete " + user.name + " and all their sessions? This can't be undone.")) {
+    return;
+  }
+
+  // remove their sessions, then remove them from the list
+  storageRemove("workouts-" + id + ".csv");
+  let newList = [];
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id != id) {
+      newList.push(users[i]);
+    }
+  }
+  saveUsers(newList);
+
+  if (storageGet("currentUser") == String(id)) {
+    storageRemove("currentUser");
+  }
+
+  if (newList.length == 0) {
+    showAddUserScreen();
+  } else {
+    showUserScreen();
+  }
+}
+
+
+// ============================================================
+//  6. SPORT
+// ============================================================
+
+function showSportScreen() {
+  let user = getCurrentUser();
+  document.getElementById("greeting").textContent = "Hey " + user.name + "! What are you playing today?";
+  showScreen("sportScreen");
+}
+
+function pickSport(sport) {
+  currentSport = sport;
+  document.getElementById("sportLabel").textContent = sport;
+  showScreen("newScreen");
+}
+
+
+// ============================================================
+//  7. EFFORT SLIDER AND TIMER
+// ============================================================
+
+function updateEffortText() {
+  document.getElementById("effortText").textContent = document.getElementById("effortInput").value;
+}
+
+function startTimer() {
+  if (timerId != null) {
+    return;   // already running
+  }
+
+  timerSeconds = 60;
+  document.getElementById("timerButton").textContent = "Running...";
+
+  // setInterval runs the code inside once every 1000 milliseconds (1 second)
+  timerId = setInterval(function () {
+    timerSeconds = timerSeconds - 1;
+    document.getElementById("timerText").textContent = timerSeconds;
+
+    if (timerSeconds <= 0) {
+      clearInterval(timerId);
+      timerId = null;
+      document.getElementById("timerButton").textContent = "Start again";
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]);   // vibrate (Android only)
+      }
+      alert("Time's up! Check your heart rate now.");
+      document.getElementById("oneMinInput").focus();
+    }
+  }, 1000);
+}
+
+
+// ============================================================
+//  8. SAVING A SESSION AND SHOWING THE RESULT
+// ============================================================
+
+function saveSession() {
+  // 1. Read what the user typed
+  let duration = Number(document.getElementById("durationInput").value);
+  let effort = Number(document.getElementById("effortInput").value);
+  let peak = Number(document.getElementById("peakInput").value);
+  let oneMin = Number(document.getElementById("oneMinInput").value);
+
+  // 2. Check the numbers make sense
+  if (duration <= 0 || peak <= 0 || oneMin <= 0) {
+    showMessage("Please fill in duration, peak heart rate, and your 60-second heart rate.", false);
+    return;
+  }
+  if (oneMin >= peak) {
+    showMessage("Your 60-second heart rate should be lower than your peak. Please check your numbers.", false);
+    return;
+  }
+
+  // 3. Which areas are sore?
+  let soreAreas = [];
+  if (document.getElementById("soreLegs").checked) soreAreas.push("Legs");
+  if (document.getElementById("soreArms").checked) soreAreas.push("Arms");
+  if (document.getElementById("soreCore").checked) soreAreas.push("Core");
+  if (document.getElementById("soreShoulders").checked) soreAreas.push("Shoulders");
+
+  // 4. Build the session
+  let session = {
+    id: Date.now(),
+    date: todayText(),
+    sport: currentSport,
+    duration: duration,
+    effort: effort,
+    peak: peak,
+    oneMin: oneMin,
+    drop: peak - oneMin,
+    sore: soreAreas
+  };
+
+  // 5. Add it, or replace the one being edited
+  let sessions = loadSessions();
+  if (editingId == null) {
+    sessions.push(session);
+  } else {
+    for (let i = 0; i < sessions.length; i++) {
+      if (sessions[i].id == editingId) {
+        session.id = editingId;
+        session.date = sessions[i].date;
+        sessions[i] = session;
+      }
+    }
+  }
+  saveAllSessions(sessions);
+
+  // 6. Show the result and reset the form
+  showResult(session, sessions);
+  editingId = null;
+  document.getElementById("saveButton").textContent = "Save & see my result";
+  clearForm();
+}
+
+function getRating(drop) {
+  if (drop >= 25) {
+    return "Strong";
+  } else if (drop >= 13) {
+    return "Normal";
+  } else {
+    return "Slow";
+  }
+}
+
+function getAverageDrop(sessions) {
+  if (sessions.length == 0) {
+    return 0;
+  }
+  let total = 0;
+  for (let i = 0; i < sessions.length; i++) {
+    total = total + sessions[i].drop;
+  }
+  return Math.round(total / sessions.length);
+}
+
+function showResult(session, sessions) {
+  let rating = getRating(session.drop);
+  let message = "Your heart rate dropped " + session.drop + " bpm in 1 minute. That is a " + rating + " recovery. ";
+  let isGood = (rating != "Slow");
+
+  if (sessions.length >= 4) {
+    let average = getAverageDrop(sessions);
+    if (session.drop < average - 8) {
+      message = message + "It's lower than your average of " + average + " bpm, so you may still be tired. ";
+      isGood = false;
+    } else {
+      message = message + "Your average is " + average + " bpm. ";
+    }
+  }
+
+  if (session.sore.length >= 3) {
+    message = message + "You are sore in a lot of places. ";
+    isGood = false;
+  }
+
+  if (isGood) {
+    message = message + "You look recovered. Normal training should be fine.";
+  } else {
+    message = message + "Take it easy next time: light activity or rest, plus good sleep and water.";
+  }
+
+  showMessage(message, isGood);
+}
+
+function showMessage(text, isGood) {
+  let box = document.getElementById("resultBox");
+  box.textContent = text;
+  box.className = isGood ? "result result-good" : "result result-bad";
+  box.scrollIntoView({ behavior: "smooth" });
+}
+
+function clearForm() {
+  document.getElementById("durationInput").value = "";
+  document.getElementById("peakInput").value = "";
+  document.getElementById("oneMinInput").value = "";
+  document.getElementById("effortInput").value = 5;
+  updateEffortText();
+  document.getElementById("soreLegs").checked = false;
+  document.getElementById("soreArms").checked = false;
+  document.getElementById("soreCore").checked = false;
+  document.getElementById("soreShoulders").checked = false;
+  document.getElementById("timerText").textContent = "60";
+  document.getElementById("timerButton").textContent = "Start 60s timer";
+}
+
+
+// ============================================================
+//  9. HISTORY: SHOW, EDIT, DELETE, SHARE
+// ============================================================
+
+function showHistory() {
+  document.getElementById("copyArea").classList.add("hidden");
+  let sessions = loadSessions();
+  let list = document.getElementById("historyList");
+  list.innerHTML = "";
+
+  // the trend graph needs at least 2 sessions to draw a line
+  if (sessions.length >= 2) {
+    document.getElementById("trendCard").classList.remove("hidden");
+    drawTrend(sessions);
+  } else {
+    document.getElementById("trendCard").classList.add("hidden");
+  }
+
+  if (sessions.length == 0) {
+    list.innerHTML = "<p class='small-note'>No sessions yet. Save one from the New tab.</p>";
+    document.getElementById("averageText").textContent = "";
+    return;
+  }
+
+  document.getElementById("averageText").textContent =
+    "Sessions: " + sessions.length + "  |  Average drop: " + getAverageDrop(sessions) + " bpm";
+
+  // newest first
+  for (let i = sessions.length - 1; i >= 0; i--) {
+    let s = sessions[i];
+    let soreText = s.sore.length > 0 ? s.sore.join(", ") : "none";
+
+    let item = document.createElement("div");
+    item.className = "history-item";
+    item.innerHTML =
+      "<b>" + s.sport + " - " + s.date + "</b><br>" +
+      s.duration + " min, effort " + s.effort + "/10<br>" +
+      "Heart rate " + s.peak + " → " + s.oneMin + " (drop " + s.drop + ", " + getRating(s.drop) + ")<br>" +
+      "Sore: " + soreText + "<br>" +
+      "<button class='small-button' onclick='editSession(" + s.id + ")'>Edit</button>" +
+      "<button class='small-button' onclick='shareSession(" + s.id + ")'>Share</button>" +
+      "<button class='small-button delete-button' onclick='deleteSession(" + s.id + ")'>Delete</button>";
+
+    list.appendChild(item);
+  }
+}
+
+function findSession(id) {
+  let sessions = loadSessions();
+  for (let i = 0; i < sessions.length; i++) {
+    if (sessions[i].id == id) {
+      return sessions[i];
+    }
+  }
+  return null;
+}
+
+function editSession(id) {
+  let s = findSession(id);
+
+  document.getElementById("durationInput").value = s.duration;
+  document.getElementById("effortInput").value = s.effort;
+  updateEffortText();
+  document.getElementById("peakInput").value = s.peak;
+  document.getElementById("oneMinInput").value = s.oneMin;
+  document.getElementById("soreLegs").checked = s.sore.includes("Legs");
+  document.getElementById("soreArms").checked = s.sore.includes("Arms");
+  document.getElementById("soreCore").checked = s.sore.includes("Core");
+  document.getElementById("soreShoulders").checked = s.sore.includes("Shoulders");
+
+  currentSport = s.sport;
+  document.getElementById("sportLabel").textContent = s.sport;
+
+  editingId = id;
+  document.getElementById("saveButton").textContent = "Update session";
+  document.getElementById("resultBox").className = "";
+  document.getElementById("resultBox").textContent = "";
+  showScreen("newScreen");
+}
+
+function deleteSession(id) {
+  if (!confirm("Delete this session?")) {
+    return;
+  }
+  let sessions = loadSessions();
+  let newList = [];
+  for (let i = 0; i < sessions.length; i++) {
+    if (sessions[i].id != id) {
+      newList.push(sessions[i]);
+    }
+  }
+  saveAllSessions(newList);
+  showHistory();
+}
+
+function shareSession(id) {
+  let s = findSession(id);
+  let user = getCurrentUser();
+
+  let report =
+    "Recovery Report - " + user.name + "\n" +
+    "Date: " + s.date + "\n" +
+    "Sport: " + s.sport + "\n" +
+    "Duration: " + s.duration + " min, Effort: " + s.effort + "/10\n" +
+    "Peak HR: " + s.peak + ", 1-min HR: " + s.oneMin + "\n" +
+    "Recovery: " + s.drop + " bpm drop (" + getRating(s.drop) + ")\n" +
+    "Sore: " + (s.sore.length > 0 ? s.sore.join(", ") : "none");
+
+  // 1. Phones: open the share menu (Messages, WhatsApp, email...)
+  if (navigator.share) {
+    navigator.share({ title: "Recovery Report", text: report }).catch(function () {});
+    return;
+  }
+
+  // 2. No share menu: try to copy it
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(report)
+      .then(function () {
+        alert("Report copied! You can paste it anywhere.");
+      })
+      .catch(function () {
+        showCopyBox(report);   // copying was blocked
+      });
+    return;
+  }
+
+  // 3. Can't share or copy: show the text so it can be copied by hand
+  showCopyBox(report);
+}
+
+function showCopyBox(text) {
+  document.getElementById("copyBox").value = text;
+  document.getElementById("copyArea").classList.remove("hidden");
+  document.getElementById("copyArea").scrollIntoView({ behavior: "smooth" });
+}
+
+// Send the CSV file somewhere: share menu on phones, download on computers
+function exportCSV() {
+  let text = makeCSV(loadSessions());
+  // file name includes the user's name, like "recovery-sessions-Sam.csv"
+  let fileName = "recovery-sessions-" + getCurrentUser().name + ".csv";
+  let file = new File([text], fileName, { type: "text/csv" });
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    navigator.share({ files: [file], title: "Recovery sessions" }).catch(function () {});
+  } else {
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(file);
+    link.download = fileName;
+    link.click();
+  }
+}
+
+
+// Load sessions from a CSV file (for example one you exported before).
+// Works with the CSV files from every version of this app, because it
+// finds each column by its name instead of its position.
+function importCSV(fileInput) {
+  let file = fileInput.files[0];
+  if (!file) {
+    return;
+  }
+
+  let reader = new FileReader();
+  reader.onload = function () {
+    let lines = reader.result.trim().split("\n");
+    if (lines.length < 2) {
+      alert("That file has no sessions in it.");
+      return;
+    }
+
+    // Read the column names from the first line, like: date,sport,peak,...
+    let names = cleanRow(lines[0]);
+    for (let i = 0; i < names.length; i++) {
+      names[i] = names[i].toLowerCase();
+    }
+
+    let dateCol = findColumn(names, ["date"]);
+    let sportCol = findColumn(names, ["sport"]);
+    let durationCol = findColumn(names, ["duration", "minutes"]);
+    let effortCol = findColumn(names, ["effort"]);
+    let peakCol = findColumn(names, ["peak"]);
+    let oneMinCol = findColumn(names, ["onemin", "1-min"]);
+    let soreCol = findColumn(names, ["sore"]);
+
+    if (peakCol == -1 || oneMinCol == -1) {
+      alert("This CSV doesn't have peak and 1-minute heart rate columns.");
+      return;
+    }
+
+    let newSessions = [];
+    for (let i = 1; i < lines.length; i++) {
+      let v = cleanRow(lines[i]);
+      let soreList = [];
+      if (soreCol != -1 && v[soreCol]) {
+        let pieces = v[soreCol].split(";");
+        for (let j = 0; j < pieces.length; j++) {
+          if (pieces[j].trim() != "") {
+            soreList.push(pieces[j].trim());
+          }
+        }
+      }
+
+      let s = sessionFromOld({
+        date: dateCol != -1 ? v[dateCol] : todayText(),
+        sport: sportCol != -1 ? v[sportCol] : "Other",
+        duration: durationCol != -1 ? v[durationCol] : 0,
+        effort: effortCol != -1 ? v[effortCol] : 5,
+        peak: v[peakCol],
+        oneMin: v[oneMinCol],
+        sore: soreList
+      }, i);
+
+      if (s != null) {
+        newSessions.push(s);
+      }
+    }
+
+    let added = addSessions(newSessions);
+    alert("Added " + added + " sessions. (" + (newSessions.length - added) + " were already in your history.)");
+    fileInput.value = "";   // so the same file can be picked again later
+    showHistory();
+  };
+  reader.readAsText(file);
+}
+
+// Split one CSV line into values and remove the "quotes" around them
+function cleanRow(line) {
+  let values = line.trim().split(",");
+  for (let i = 0; i < values.length; i++) {
+    values[i] = values[i].trim().replace(/"/g, "");
+  }
+  return values;
+}
+
+// Find which column has one of these words in its name (-1 if none)
+function findColumn(names, words) {
+  for (let i = 0; i < names.length; i++) {
+    for (let j = 0; j < words.length; j++) {
+      if (names[i].includes(words[j])) {
+        return i;
+      }
+    }
+  }
+  return -1;
+}
+
+
+// ============================================================
+//  10. TREND GRAPH
+//  Draws a line graph of the heart rate drop for each session,
+//  oldest on the left, newest on the right. Higher = better recovery.
+//  We draw it on a <canvas>, which is like a blank picture we paint on.
+// ============================================================
+
+let trendPoints = [];   // where each dot is on the graph (used when you tap a dot)
+
+function drawTrend(sessions) {
+  // only show the last 20 sessions so the graph doesn't get too crowded
+  let data = sessions.slice(-20);
+
+  let canvas = document.getElementById("trendChart");
+  let ctx = canvas.getContext("2d");
+
+  // Make the drawing sharp on phone screens (they have extra pixels)
+  let width = canvas.clientWidth;
+  let height = canvas.clientHeight;
+  let scale = window.devicePixelRatio || 1;
+  canvas.width = width * scale;
+  canvas.height = height * scale;
+  ctx.scale(scale, scale);
+  ctx.clearRect(0, 0, width, height);
+
+  // Space around the graph for the numbers and dates
+  let left = 34;
+  let right = width - 30;
+  let top = 12;
+  let bottom = height - 28;
+
+  // The highest number on the side of the graph (at least 40)
+  let maxDrop = 40;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].drop + 5 > maxDrop) {
+      maxDrop = data[i].drop + 5;
+    }
+  }
+  maxDrop = Math.ceil(maxDrop / 10) * 10;   // round up to the next 10
+
+  // Helpers that turn a session number / a drop into a spot on the canvas
+  function xFor(i) {
+    return left + i * (right - left) / (data.length - 1);
+  }
+  function yFor(drop) {
+    return bottom - (Math.max(0, drop) / maxDrop) * (bottom - top);
+  }
+
+  ctx.font = "12px Arial";
+  ctx.lineWidth = 1;
+
+  // 1. Faint grid lines and numbers every 10 bpm
+  for (let value = 0; value <= maxDrop; value = value + 10) {
+    ctx.strokeStyle = "#34508A";
+    ctx.beginPath();
+    ctx.moveTo(left, yFor(value));
+    ctx.lineTo(right, yFor(value));
+    ctx.stroke();
+
+    ctx.fillStyle = "#A9BFF8";
+    ctx.textAlign = "right";
+    ctx.fillText(value, left - 6, yFor(value) + 4);
+  }
+
+  // 2. Dashed line at 13: below it is a "slow" recovery
+  ctx.strokeStyle = "#FF9A80";
+  ctx.setLineDash([5, 5]);
+  ctx.beginPath();
+  ctx.moveTo(left, yFor(13));
+  ctx.lineTo(right, yFor(13));
+  ctx.stroke();
+  ctx.setLineDash([]);   // back to a solid line
+  ctx.fillStyle = "#FFB8A6";
+  ctx.textAlign = "left";
+  ctx.fillText("slow", left + 4, yFor(13) - 5);
+
+  // 3. The line joining all the sessions
+  ctx.strokeStyle = "#7FE0C8";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  for (let i = 0; i < data.length; i++) {
+    if (i == 0) {
+      ctx.moveTo(xFor(i), yFor(data[i].drop));
+    } else {
+      ctx.lineTo(xFor(i), yFor(data[i].drop));
+    }
+  }
+  ctx.stroke();
+
+  // 4. A dot for each session (remember where it is for tapping)
+  trendPoints = [];
+  for (let i = 0; i < data.length; i++) {
+    let x = xFor(i);
+    let y = yFor(data[i].drop);
+    ctx.fillStyle = "#7FE0C8";
+    ctx.strokeStyle = "#213B8A";   // ring the same color as the card, so dots stand out
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+    trendPoints.push({ x: x, y: y, session: data[i] });
+  }
+
+  // 5. The newest drop written next to the last dot
+  let last = data[data.length - 1];
+  ctx.fillStyle = "#E2E9FF";
+  ctx.font = "bold 13px Arial";
+  ctx.textAlign = "left";
+  ctx.fillText(last.drop, xFor(data.length - 1) + 8, yFor(last.drop) + 4);
+
+  // 6. Dates under the first and last dot
+  ctx.font = "12px Arial";
+  ctx.fillStyle = "#A9BFF8";
+  ctx.textAlign = "left";
+  ctx.fillText(shortDate(data[0].date), left, height - 8);
+  ctx.textAlign = "right";
+  ctx.fillText(shortDate(last.date), right, height - 8);
+
+  // 7. A sentence saying if recovery is getting better or worse
+  document.getElementById("trendSummary").textContent = trendSummary(data);
+  document.getElementById("trendInfo").textContent = "Tap a dot to see that session.";
+}
+
+// "2026-10-16" -> "10/16"
+function shortDate(date) {
+  let parts = date.split("-");
+  if (parts.length < 3) {
+    return date;
+  }
+  return parts[1] + "/" + parts[2];
+}
+
+// Compare the last 3 sessions with the ones before them
+function trendSummary(data) {
+  if (data.length < 4) {
+    return "Log a few more sessions to see your trend.";
+  }
+
+  let recent = data.slice(-3);
+  let earlier = data.slice(0, data.length - 3);
+  let recentAvg = getAverageDrop(recent);
+  let earlierAvg = getAverageDrop(earlier);
+
+  if (recentAvg >= earlierAvg + 3) {
+    return "📈 Getting better: last 3 sessions average " + recentAvg + " bpm (was " + earlierAvg + ").";
+  } else if (recentAvg <= earlierAvg - 3) {
+    return "📉 Getting slower: last 3 sessions average " + recentAvg + " bpm (was " + earlierAvg + "). Maybe add a rest day.";
+  } else {
+    return "➡️ Steady: last 3 sessions average " + recentAvg + " bpm.";
+  }
+}
+
+// When you tap (or move the mouse over) the graph, show the nearest session
+function showTrendPoint(event) {
+  if (trendPoints.length == 0) {
+    return;
+  }
+  let box = document.getElementById("trendChart").getBoundingClientRect();
+  let tapX = event.clientX - box.left;
+
+  // find the dot closest to where you tapped (left/right)
+  let closest = trendPoints[0];
+  for (let i = 1; i < trendPoints.length; i++) {
+    if (Math.abs(trendPoints[i].x - tapX) < Math.abs(closest.x - tapX)) {
+      closest = trendPoints[i];
+    }
+  }
+
+  let s = closest.session;
+  document.getElementById("trendInfo").textContent =
+    shortDate(s.date) + " · " + s.sport + " · dropped " + s.drop + " bpm (" + getRating(s.drop) + ")";
+}
+
+document.getElementById("trendChart").addEventListener("click", showTrendPoint);
+document.getElementById("trendChart").addEventListener("mousemove", showTrendPoint);
+
+// Redraw the graph if the screen turns sideways or the window changes size
+window.addEventListener("resize", function () {
+  if (!document.getElementById("trendCard").classList.contains("hidden")) {
+    drawTrend(loadSessions());
+  }
+});
+
+
+// ============================================================
+//  11. INSTALL TIP
+//  If the app is open in a normal browser tab, tell the user how to install it.
+// ============================================================
+
+function showInstallTip() {
+  let installed = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone == true;
+  if (installed) {
+    return;
+  }
+
+  // userAgent is a line of text that says what device and browser this is
+  let device = navigator.userAgent;
+  let isIPhone = device.includes("iPhone") || device.includes("iPad");
+  let isAndroid = device.includes("Android");
+  let text = "";
+
+  if (isIPhone) {
+    text = "In Safari, tap the Share button, then \"Add to Home Screen\".";
+  } else if (isAndroid) {
+    text = "In Chrome, tap the ⋮ menu, then \"Add to Home screen\".";
+  } else {
+    return;   // on a computer, no tip needed
+  }
+
+  document.getElementById("installText").textContent = " " + text;
+  document.getElementById("installTip").classList.remove("hidden");
+}
+
+
+// ============================================================
+//  12. START-UP: WHEN THE APP FIRST LOADS
+// ============================================================
+
+// Warn if this browser won't let the app save anything
+if (!storageWorks) {
+  document.getElementById("storageWarning").classList.remove("hidden");
+}
+
+showInstallTip();
+moveOldData();
+importOldBrowserData();
+
+if (loadUsers().length == 0) {
+  showAddUserScreen();        // first time: add the first user
+} else if (getCurrentUser() == null) {
+  showUserScreen();           // users exist, but none picked
+} else {
+  showSportScreen();          // carry on as the last user
+}
+</script>
+
+</body>
+</html>
