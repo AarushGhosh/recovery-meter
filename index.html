@@ -1,333 +1,301 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html
+    lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta	charset="UTF-8">
+  <meta   name="viewport"	content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Recovery Meter</title>
 
   
-  <meta name="theme-color" content="#101E47">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Recovery">
+  <meta
+    name="theme-color" content="#101E47">
+  <meta
+    name="apple-mobile-web-app-capable"	content="yes">
+  <meta  name="mobile-web-app-capable"
+ content="yes">
+  <meta  name="apple-mobile-web-app-status-bar-style"
+ content="black-translucent">
+  <meta
+    name="apple-mobile-web-app-title" content="Recovery">
   
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="icon" href="icon.png">
+  <link
+    rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link  rel="icon"	href="icon.png">
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background-color: #101E47;
-      color: #E2E9FF;
-      -webkit-text-size-adjust: 100%;
-      -webkit-tap-highlight-color: transparent;
-    }
+  body   { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif   ;
 
-    .page {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 16px;
-      padding-top: calc(16px + env(safe-area-inset-top));
-      padding-bottom: calc(90px + env(safe-area-inset-bottom));
-    }
+background-color: #101E47; color: #E2E9FF   ;
+  -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent   ;
+}.page
+{
+       max-width: 500px ;margin: 0 auto
+;
+padding: 16px ;
+       padding-top: calc(16px + env(safe-area-inset-top))
+;
+       padding-bottom: calc(90px + env(safe-area-inset-bottom)) ;} h1   {
 
-    h1 {
-      margin: 0 0 4px;
-      font-size: 26px;
-    }
+margin: 0 0 4px;
+  font-size: 26px   ;
+}
+h2
+{
+font-size: 18px ;
+       margin-top: 0
+;
 
-    h2 {
-      font-size: 18px;
-      margin-top: 0;
-    }
+ }
+  .subtitle{
 
-    .subtitle {
-      color: #A9BFF8;
-      margin-top: 0;
-    }
+color: #A9BFF8   ;
 
-    .app-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
+margin-top: 0; }
+.app-header {display: flex
+;align-items: center ;
+       gap: 14px
+;margin-bottom: 16px ;}
+  .app-header .subtitle   {
+  margin-bottom: 0; }.logo {width: 64px
+;
+height: 64px ;border-radius: 16px
+;
+       flex-shrink: 0 ;}
 
-    .app-header .subtitle {
-      margin-bottom: 0;
-    }
+.card   {
 
-    .logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      flex-shrink: 0;
-    }
+background-color: #213B8A; border-radius: 14px   ;
+  padding: 16px; margin-bottom: 16px   ;
+}label
+{display: block ;
+margin-bottom: 6px
+;color: #A9BFF8 ;
+       font-size: 14px
+;
 
-    .card {
-      background-color: #213B8A;
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
+ }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      color: #A9BFF8;
-      font-size: 14px;
-    }
+input[type="number"], input[type="text"]{
+  width: 100%   ;
 
-    input[type="number"], input[type="text"] {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      margin-bottom: 14px;
-    }
+box-sizing: border-box; padding: 12px   ;
+  font-size: 16px; border: none   ;
+  border-radius: 8px; margin-bottom: 14px   ;
+}
+input[type="range"]
+{
+width: 100% ;} button   { min-height: 44px; background-color: #3D5FE0   ;
+  color: white;
 
-    input[type="range"] {
-      width: 100%;
-    }
+border: none   ; border-radius: 10px;
 
-    button {
-      min-height: 44px;
-      background-color: #3D5FE0;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+padding: 10px 14px   ;
 
-    button:active {
-      opacity: 0.7;
-    }
+font-size: 16px; font-weight: bold   ; cursor: pointer; }
+button:active {
+       opacity: 0.7
+;
 
-    .big-button {
-      width: 100%;
-    }
+ }
+  .big-button{
 
-    .small-button {
-      min-height: 36px;
-      padding: 6px 12px;
-      font-size: 14px;
-      margin-right: 6px;
-      margin-top: 6px;
-    }
+width: 100%   ;
+}.small-button
+{min-height: 36px ;padding: 6px 12px
+;
+font-size: 14px ;
+margin-right: 6px
+;margin-top: 6px ;} .delete-button   {
 
-    .delete-button {
-      background-color: #B5452E;
-    }
+background-color: #B5452E; }
+.user-bar {
+       display: flex
+;justify-content: space-between ;
+       align-items: center
+;
+background-color: #1D3350 ;
+border-radius: 10px
+;
+padding: 6px 6px 6px 12px ;
+margin-bottom: 14px
+;
 
-    .user-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1D3350;
-      border-radius: 10px;
-      padding: 6px 6px 6px 12px;
-      margin-bottom: 14px;
-    }
+ }
+  .user-bar.hidden{
+  display: none   ;
+}.user-bar .small-button
+{margin: 0 0 0 4px ;
+       padding: 6px 10px
+;
 
-    .user-bar.hidden {
-      display: none;
-    }
+ } .user-row{
 
-    .user-bar .small-button {
-      margin: 0 0 0 4px;
-      padding: 6px 10px;
-    }
+display: flex   ;
+  gap: 8px;
+  margin-bottom: 10px   ;
+}
+.user-row .pick-user
+{
+flex: 1 ;text-align: left
+;
+       background-color: #2E50B3 ;} .user-row .pick-user small   { font-weight: normal;
+  color: #C9D6FF   ;
+}
+.back-button
+{
+       background-color: #1D3350 ;
+       border: 1px solid #34508A
+;
+margin-bottom: 14px ;}
 
-    .user-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
+.sport-grid, .sore-grid   {
+  display: grid; grid-template-columns: 1fr 1fr   ; gap: 10px; }.sore-grid label {
+       background-color: #1D3350
+;padding: 12px ;border-radius: 8px
+;
+       color: #E2E9FF ;
+margin: 0
+;
+font-size: 16px ;} .sore-grid input   { width: 20px;
+  height: 20px   ;
+  vertical-align: middle;
 
-    .user-row .pick-user {
-      flex: 1;
-      text-align: left;
-      background-color: #2E50B3;
-    }
+margin-right: 6px   ;
+}
+       .timer-row
+{
+display: flex ;align-items: center
+;
+gap: 14px ;margin-bottom: 14px
+;
 
-    .user-row .pick-user small {
-      font-weight: normal;
-      color: #C9D6FF;
-    }
+ }
 
-    .back-button {
-      background-color: #1D3350;
-      border: 1px solid #34508A;
-      margin-bottom: 14px;
-    }
+.timer-number{
 
-    .sport-grid, .sore-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+font-size: 36px   ; font-weight: bold;
 
-    .sore-grid label {
-      background-color: #1D3350;
-      padding: 12px;
-      border-radius: 8px;
-      color: #E2E9FF;
-      margin: 0;
-      font-size: 16px;
-    }
+min-width: 56px   ;
+}
+.result
+{padding: 16px ;
+       border-radius: 14px
+;
+       margin-top: 16px ;
+line-height: 1.5
+;
 
-    .sore-grid input {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
+ }
 
-    .timer-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
+.result-good{
+  background-color: #1B7A6C   ;
+}.result-bad
+{
+       background-color: #7A2E1B ;}
 
-    .timer-number {
-      font-size: 36px;
-      font-weight: bold;
-      min-width: 56px;
-    }
+.history-item   {
+  border-bottom: 1px solid #34508A; padding: 12px 0   ; line-height: 1.5; }
+       #graph {
+width: 100%
+;
+height: 220px ;
+display: block
+;
+       cursor: pointer ;}
 
-    .result {
-      padding: 16px;
-      border-radius: 14px;
-      margin-top: 16px;
-      line-height: 1.5;
-    }
+#graphtext   { margin-top: 0;
 
-    .result-good {
-      background-color: #1B7A6C;
-    }
+font-weight: bold   ;
+}#graphinfo
+{
+       min-height: 18px ;} .history-item:last-child   {
 
-    .result-bad {
-      background-color: #7A2E1B;
-    }
+border-bottom: none; }.hidden {display: none
+;
 
-    .history-item {
-      border-bottom: 1px solid #34508A;
-      padding: 12px 0;
-      line-height: 1.5;
-    }
+ } .small-note{ font-size: 13px   ;
+  color: #A9BFF8; line-height: 1.4   ;
+}
+       .tab-bar
+{
+position: fixed ;
+left: 0
+;
+right: 0 ;bottom: 0
+;display: flex ;
+background-color: #0B1638
+;
+border-top: 1px solid #34508A ;padding-bottom: env(safe-area-inset-bottom)
+;
 
-    #trendChart {
-      width: 100%;
-      height: 220px;
-      display: block;
-      cursor: pointer;
-    }
+ }
+  .tab-bar.hidden{
+  display: none   ;
+}
+.tab-bar button
+{
+       flex: 1 ;
+background: none
+;
+border-radius: 0 ;
+color: #A9BFF8
+;
+       font-size: 13px ;padding: 8px 0 10px
+;
 
-    #trendSummary {
-      margin-top: 0;
-      font-weight: bold;
-    }
+ } .tab-bar button .tab-icon{
+  display: block   ;
+  font-size: 22px; }
+       .tab-bar button.active {
+       color: #7FE0C8
+;
 
-    #trendInfo {
-      min-height: 18px;
-    }
+ } .install-tip{
+  border: 1px dashed #7FE0C8   ;
+}.warning-box
+{
+border: 2px solid #FF9A80 ;line-height: 1.45
+;
 
-    .history-item:last-child {
-      border-bottom: none;
-    }
+ }
+  #copytext{
+  width: 100%   ;
 
-    .hidden {
-      display: none;
-    }
+box-sizing: border-box;
 
-    .small-note {
-      font-size: 13px;
-      color: #A9BFF8;
-      line-height: 1.4;
-    }
+height: 150px   ;
+  font-size: 16px; border-radius: 8px   ;
+  padding: 10px;
+  margin-top: 10px   ;
+}
+@media (min-width: 800px)
+{
+       .page {
+max-width: 900px
+;
 
-    .tab-bar {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      background-color: #0B1638;
-      border-top: 1px solid #34508A;
-      padding-bottom: env(safe-area-inset-bottom);
-    }
+ }
+  .two-columns{
+  display: grid   ;
 
-    .tab-bar.hidden {
-      display: none;
-    }
+grid-template-columns: 1fr 1fr; gap: 16px   ;
+}
+       .sport-grid, .sore-grid
+{
+       grid-template-columns: 1fr 1fr 1fr 1fr ;} }
 
-    .tab-bar button {
-      flex: 1;
-      background: none;
-      border-radius: 0;
-      color: #A9BFF8;
-      font-size: 13px;
-      padding: 8px 0 10px;
-    }
-
-    .tab-bar button .tab-icon {
-      display: block;
-      font-size: 22px;
-    }
-
-    .tab-bar button.active {
-      color: #7FE0C8;
-    }
-
-    .install-tip {
-      border: 1px dashed #7FE0C8;
-    }
-
-    .warning-box {
-      border: 2px solid #FF9A80;
-      line-height: 1.45;
-    }
-
-    #copyBox {
-      width: 100%;
-      box-sizing: border-box;
-      height: 150px;
-      font-size: 16px;
-      border-radius: 8px;
-      padding: 10px;
-      margin-top: 10px;
-    }
-
-    @media (min-width: 800px) {
-      .page {
-        max-width: 900px;
-      }
-      .two-columns {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-      .sport-grid, .sore-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-      }
-    }
-  </style>
+ </style>
 </head>
 
 <body>
-<div class="page">
+<div
+    class="page">
 
-  <div class="app-header">
-    <img src="logo.png" alt="Recovery Meter logo" class="logo">
+  <div
+ class="app-header">
+    <img  src="logo.png"
+ alt="Recovery Meter logo"   class="logo">
     <div>
       <h1>Recovery Meter</h1>
       <p class="subtitle">Know when to push. Know when to rest.</p>
@@ -335,1310 +303,1536 @@
   </div>
 
 
-  <div id="installTip" class="card install-tip hidden">
+  <div   id="install"
+ class="card install-tip hidden">
     <b>Install this app:</b>
-    <span id="installText"></span>
+    <span
+    id="installhelp"></span>
   </div>
 
 
-  <div id="noCodeMessage" class="card warning-box">
+  <div id="previewwarning"
+    class="card warning-box">
     <b>This app can't run in a file preview.</b>
     Previews (like the iPhone Files app or an email) show the page but don't run its code.
     Open the app's website link in Safari or Chrome instead.
   </div>
 
 
-  <div id="storageWarning" class="card warning-box hidden">
+  <div
+ id="savewarning"  class="card warning-box hidden">
     <b>Saving is blocked in this browser.</b>
     The app will work, but your sessions will be lost when you close this page.
     Open the app's website link in Safari or Chrome (not from an email, a file preview, or a private tab).
   </div>
 
   
-  <div id="errorBox" class="card warning-box hidden"></div>
+  <div	id="error"  class="card warning-box hidden"></div>
 
   
-  <div id="userBar" class="user-bar hidden">
-    <span>👤 <b id="userNameText"></b></span>
+  <div id="currentuser"  class="user-bar hidden">
+    <span>👤 <b id="username"></b></span>
     <span>
-      <button class="small-button" onclick="showUserScreen()">Switch user</button>
-      <button class="small-button" onclick="showAddUserScreen()">+ New user</button>
+      <button   class="small-button"	onclick="showUserScreen()">Switch user</button>
+      <button  class="small-button"
+ onclick="showAddUserScreen()">+ New user</button>
     </span>
   </div>
 
 
-  <div id="userScreen" class="card hidden">
+  <div
+    id="userspage"
+ class="card hidden">
     <h2>Who's using the app?</h2>
-    <div id="userList"></div>
-    <button class="big-button" onclick="showAddUserScreen()">+ Add new user</button>
+    <div   id="users"></div>
+    <button	class="big-button"  onclick="showAddUserScreen()">+ Add new user</button>
   </div>
 
 
-  <div id="profileScreen" class="card hidden">
+  <div	id="adduserpage"  class="card hidden">
     <h2>Add a user</h2>
 
-    <label for="nameInput">Name</label>
-    <input type="text" id="nameInput" placeholder="Your name" maxlength="30">
+    <label	for="name">Name</label>
+    <input   type="text"	id="name"   placeholder="Your name" maxlength="30">
 
-    <label for="ageInput">Age</label>
-    <input type="number" id="ageInput" inputmode="numeric" placeholder="e.g. 16">
+    <label  for="age">Age</label>
+    <input type="number"   id="age" inputmode="numeric"  placeholder="e.g. 16">
 
-    <button class="big-button" onclick="addUser()">Continue</button>
+    <button
+ class="big-button"  onclick="addUser()">Continue</button>
    
-    <button class="big-button back-button hidden" id="cancelAddButton" style="margin-top:10px" onclick="showUserScreen()">Cancel</button>
+    <button
+ class="big-button back-button hidden"  id="cancel"
+ style="margin-top:10px"  onclick="showUserScreen()">Cancel</button>
   </div>
 
 
-  <div id="sportScreen" class="card hidden">
-    <h2 id="greeting">What are you playing today?</h2>
-    <div class="sport-grid">
-      <button onclick="pickSport('Running')">Running</button>
-      <button onclick="pickSport('Basketball')">Basketball</button>
-      <button onclick="pickSport('Soccer')">Soccer</button>
-      <button onclick="pickSport('Football')">Football</button>
-      <button onclick="pickSport('Weightlifting')">Weightlifting</button>
-      <button onclick="pickSport('Swimming')">Swimming</button>
-      <button onclick="pickSport('Tennis')">Tennis</button>
-      <button onclick="pickSport('Other')">Other</button>
+  <div
+ id="sportspage"
+    class="card hidden">
+    <h2
+ id="hello">What are you playing today?</h2>
+    <div  class="sport-grid">
+      <button
+ onclick="pickSport('Running')">Running</button>
+      <button   onclick="pickSport('Basketball')">Basketball</button>
+      <button	onclick="pickSport('Soccer')">Soccer</button>
+      <button   onclick="pickSport('Football')">Football</button>
+      <button
+ onclick="pickSport('Weightlifting')">Weightlifting</button>
+      <button
+    onclick="pickSport('Swimming')">Swimming</button>
+      <button	onclick="pickSport('Tennis')">Tennis</button>
+      <button   onclick="pickSport('Other')">Other</button>
     </div>
   </div>
 
  
-  <div id="newScreen" class="hidden">
-    <p>Sport: <b id="sportLabel"></b>
-      <button class="small-button" onclick="showScreen('sportScreen')">Change</button></p>
+  <div	id="sessionpage"   class="hidden">
+    <p>Sport: <b id="sport"></b>
+      <button   class="small-button"	onclick="showScreen('sportspage')">Change</button></p>
 
-    <div class="two-columns">
+    <div  class="two-columns">
       <div class="card">
         <h2>Session</h2>
 
-        <label for="durationInput">Duration (minutes)</label>
-        <input type="number" id="durationInput" inputmode="numeric" placeholder="e.g. 60">
+        <label  for="minutes">Duration (minutes)</label>
+        <input
+ type="number"   id="minutes"
+ inputmode="numeric"  placeholder="e.g. 60">
 
-        <label for="effortInput">How hard did you push? <b id="effortText">5</b> / 10</label>
-        <input type="range" id="effortInput" min="1" max="10" value="5" oninput="updateEffortText()">
+        <label	for="effort">How hard did you push? <b   id="effortnumber">5</b> / 10</label>
+        <input	type="range"  id="effort" min="1"   max="10" value="5"
+    oninput="updateEffortText()">
 
         <br><br>
-        <label for="peakInput">Peak heart rate (from your watch)</label>
-        <input type="number" id="peakInput" inputmode="numeric" placeholder="e.g. 175">
+        <label for="peak">Peak heart rate (from your watch)</label>
+        <input
+    type="number" id="peak"
+    inputmode="numeric" placeholder="e.g. 175">
       </div>
 
-      <div class="card">
+      <div  class="card">
         <h2>1-minute recovery check</h2>
         <p class="small-note">Start the timer as soon as you stop exercising. Stay still until it ends.</p>
 
-        <div class="timer-row">
-          <span class="timer-number" id="timerText">60</span>
-          <button id="timerButton" onclick="startTimer()">Start 60s timer</button>
+        <div  class="timer-row">
+          <span class="timer-number"
+    id="seconds">60</span>
+          <button
+ id="timer"  onclick="startTimer()">Start 60s timer</button>
         </div>
 
-        <label for="oneMinInput">Heart rate after 60 seconds</label>
-        <input type="number" id="oneMinInput" inputmode="numeric" placeholder="e.g. 145">
+        <label
+ for="afterminute">Heart rate after 60 seconds</label>
+        <input  type="number"
+ id="afterminute"  inputmode="numeric"
+ placeholder="e.g. 145">
       </div>
     </div>
 
-    <div class="card">
+    <div   class="card">
       <h2>Which areas are sore?</h2>
-      <div class="sore-grid">
-        <label><input type="checkbox" id="soreLegs"> Legs</label>
-        <label><input type="checkbox" id="soreArms"> Arms</label>
-        <label><input type="checkbox" id="soreCore"> Core</label>
-        <label><input type="checkbox" id="soreShoulders"> Shoulders</label>
+      <div
+ class="sore-grid">
+        <label><input
+    type="checkbox" id="legs"> Legs</label>
+        <label><input  type="checkbox"
+ id="arms"> Arms</label>
+        <label><input  type="checkbox"	id="core"> Core</label>
+        <label><input   type="checkbox" id="shoulders"> Shoulders</label>
       </div>
     </div>
 
-    <button class="big-button" id="saveButton" onclick="saveSession()">Save &amp; see my result</button>
+    <button   class="big-button"	id="save"  onclick="saveSession()">Save &amp; see my result</button>
 
-    <div id="resultBox"></div>
+    <div id="result"></div>
 
-    <p class="small-note">Recovery Meter - student project</p>
-    <p class="small-note">This app is a training log, not medical advice. If you feel chest pain, dizziness, or can't catch your breath, stop and tell a coach, parent, or doctor.</p>
+    <p   class="small-note">Recovery Meter - student project</p>
+    <p
+ class="small-note">This app is a training log, not medical advice. If you feel chest pain, dizziness, or can't catch your breath, stop and tell a coach, parent, or doctor.</p>
   </div>
 
 
-  <div id="historyScreen" class="hidden">
-    <button class="back-button" onclick="showScreen('newScreen')">← Back to New Session</button>
+  <div  id="historypage"	class="hidden">
+    <button   class="back-button" onclick="showScreen('sessionpage')">← Back to New Session</button>
 
 
-    <div id="trendCard" class="card hidden">
+    <div   id="graphbox" class="card hidden">
       <h2>My recovery trend</h2>
-      <p id="trendSummary"></p>
-      <canvas id="trendChart"></canvas>
-      <p class="small-note" id="trendInfo">Tap a dot to see that session.</p>
+      <p   id="graphtext"></p>
+      <canvas id="graph"></canvas>
+      <p   class="small-note"	id="graphinfo">Tap a dot to see that session.</p>
     </div>
 
-    <div class="card">
+    <div   class="card">
       <h2>My sessions</h2>
-      <p id="averageText"></p>
-      <button class="small-button" onclick="exportCSV()">Export CSV</button>
-      <button class="small-button" onclick="document.getElementById('csvFileInput').click()">Import CSV</button>
+      <p	id="average"></p>
+      <button   class="small-button"	onclick="exportCSV()">Export CSV</button>
+      <button
+    class="small-button" onclick="document.getElementById('csvfile').click()">Import CSV</button>
       
-      <input type="file" id="csvFileInput" accept=".csv,text/csv" class="hidden" onchange="importCSV(this)">
+      <input   type="file" id="csvfile"  accept=".csv,text/csv"	class="hidden"   onchange="importCSV(this)">
       
-      <div id="copyArea" class="hidden">
-        <p class="small-note">Your phone can't share from here. Press and hold the text below to copy it:</p>
-        <textarea id="copyBox" readonly></textarea>
+      <div
+ id="copyhelp"  class="hidden">
+        <p	class="small-note">Your phone can't share from here. Press and hold the text below to copy it:</p>
+        <textarea   id="copytext" readonly></textarea>
       </div>
-      <div id="historyList"></div>
+      <div  id="sessions"></div>
     </div>
   </div>
 
 </div>
 
 
-<div id="tabBar" class="tab-bar hidden">
-  <button id="newTabButton" class="active" onclick="showScreen('newScreen')">
-    <span class="tab-icon">＋</span>New
+<div
+ id="menu"  class="tab-bar hidden">
+  <button id="newtab"
+    class="active"	onclick="showScreen('sessionpage')">
+    <span  class="tab-icon">＋</span>New
   </button>
-  <button id="historyTabButton" onclick="showScreen('historyScreen')">
+  <button
+ id="historytab"
+    onclick="showScreen('historypage')">
     <span class="tab-icon">☰</span>History
   </button>
-  <button id="usersTabButton" onclick="showUserScreen()">
-    <span class="tab-icon">👤</span>Users
+  <button
+    id="userstab"
+ onclick="showUserScreen()">
+    <span   class="tab-icon">👤</span>Users
   </button>
 </div>
 
 
 <script>
-function compareSessions(qb, hc) {
-  if (qb.date < hc.date) {
-    return -1;
+        function twoDigits(zb) {
+	let bj =   String(  zb);
+	if (bj.length <	2)  {
+     bj   =   "0"  + bj;
+
+
   }
-  if (qb.date > hc.date) {
-    return 1;
+        return  bj;
+	}
+
+
+
+let tz =   ["Legs",   "Arms", "Core",   "Shoulders"];
+
+     function   loadSessions  ( )	{
+  let bj = storageGet (  csvKey());
+        if  ( bj == null)   {
+     return [];
+}
+	return  readCSV(bj)  ;
+     }
+
+
+	function showCopyBox( bj)  {
+ el( "copytext").  value =  bj;
+     el  ("copyhelp"). classList.remove("hidden") ;
+el("copyhelp").scrollIntoView({ behavior :  "smooth" } );
+        }
+
+function	trendSummary(gg )	{
+	if  (  gg.length  <	4) {
+	return "Log a few more sessions to see your trend.";
+}
+
+
+  let gc =   gg.slice(-3)  ;
+ let na	=	gg.slice(0 , gg.length	-  3);
+     let ni   =   getAverageDrop(gc);
+let yp  = getAverageDrop (na);
+
+     if ( ni  >=	yp + 3)   {
+return   "📈 Getting better: last 3 sessions average " + ni +  " bpm (was " +   yp +  ")."  ;
+	}   else  if   (ni	<=   yp	-  3  ) {
+return	"📉 Getting slower: last 3 sessions average " + ni +  " bpm (was " +   yp  + "). Maybe add a rest day.";
+	}   else {
+return   "➡️ Steady: last 3 sessions average "  +  ni  +	" bpm.";
+}
+
+
+     }
+
+
+
+     function  el(  ii) {
+return   document .  getElementById(ii) ;
   }
-  return qb.id - hc.id;
+
+     let	uo  = "";
+  let	ws  = null;
+ let ki = 60  ;
+	let vb =   null ;
+
+const wd  = "id,date,sport,duration,effort,peak,oneMin,drop,rating,sore" ;
+
+ el( "previewwarning").  classList.add( "hidden");
+
+
+     window.onerror   =	function	(dd) {
+	let  zc  = el("error");
+
+
+zc .textContent  =   "Something went wrong: " +	dd +  ". Try closing and reopening the app." ;
+zc .  classList .remove("hidden");
+
+
+} ;
+
+	let	vy =	true;
+let	oj =   {}  ;
+
+
+	try	{
+ localStorage  .setItem("test",   "1");
+  localStorage.  removeItem("test");
+} catch   (  ux)	{
+     vy  =  false;
+        }
+
+	function storageRemove(oe)  {
+if	(  vy)  {
+ localStorage. removeItem(oe  );
+	}
+delete   oj [  oe];
+	}
+
+     function   findColumn(xg,   jj)  {
+        for (let   nz   = 0;  nz  <	xg.length;  nz =   nz	+   1)  {
+  for (let wg =	0;  wg  < jj. length; wg   =	wg   +	1)   {
+ if (  xg[ nz].includes( jj [wg] ) ) {
+     return  nz;
 }
 
-let tz = ["Legs", "Arms", "Core", "Shoulders"];
 
-function el(ii) {
-  return document.getElementById(ii);
 }
+ }
 
-function readNumber(ii) {
-  return Number(el(ii).value);
-}
 
-function readSore() {
-  let fl = [];
-  for (let nz = 0; nz < tz.length; nz = nz + 1) {
-    if (el("sore" + tz[nz]).checked) {
-      fl.push(tz[nz]);
-    }
+ return   -1;
   }
-  return fl;
-}
 
-function markSore(fl) {
-  for (let nz = 0; nz < tz.length; nz = nz + 1) {
-    let dx = false;
-    for (let wg = 0; wg < fl.length; wg = wg + 1) {
-      if (fl[wg] === tz[nz]) {
-        dx = true;
-      }
-    }
-    el("sore" + tz[nz]).checked = dx;
+
+
+	function updateEffortText  ( )  {
+
+
+ el("effortnumber"  ).textContent = el  ("effort"  ). value;
   }
+
+ function  loadUsers() {
+	let	jk   = storageGet("users");
+if (jk	== null) {
+return [];
+ }
+	return	JSON .parse(jk)  ;
 }
 
-let uo = "";
-let ws = null;
-let ki = 60;
-let vb = null;
+function	moveOldData (  )	{
+let   lt  = storageGet  ( "profile");
+if (  lt == null	||   loadUsers( ).length > 0  )  {
+return;
+ }
+let	tx = JSON.parse(  lt);
 
-const wd = "id,date,sport,duration,effort,peak,oneMin,drop,rating,sore";
 
-el("noCodeMessage").classList.add("hidden");
+     let	cv	=	tx.name;
+if (!  cv)	{
+cv  =  "Me";
+	}
+     let	qi =  {};
+	qi.id = Date .now();
+qi.name   =  cv ;
 
-window.onerror = function (dd) {
-  let zc = el("errorBox");
-  zc.textContent = "Something went wrong: " + dd + ". Try closing and reopening the app.";
-  zc.classList.remove("hidden");
+
+ qi.age = tx.age  ;
+        saveUsers([  qi ]);
+  setCurrentUser( qi.id );
+
+	let   ou	= storageGet  ("workouts.csv");
+  if	( ou != null)  {
+  storageSet(  csvKey(),	ou  );
+  storageRemove("workouts.csv")  ;
+  }
+  storageRemove ( "profile");
+	}
+
+     function   showUserScreen() {
+     let	lr = loadUsers (  ) ;
+ let	lb = el("users");
+lb.  innerHTML =   "";
+
+        for (let  nz = 0;   nz   < lr  .length;	nz = nz	+	1) {
+	let  xb  =   lr  [ nz ];
+  let	hq   =	document.createElement("div");
+hq.  className =   "user-row";
+
+	let  ig	=	document.createElement("button");
+ ig.className	=  "pick-user";
+	ig.textContent   =  xb .  name   + "  ";
+
+
+  let   wf   =   document.createElement("small")  ;
+wf.textContent	= "age "	+  xb.age ;
+ig. appendChild(wf);
+  ig.onclick =  function  ()  {
+
+
+     switchToUser( xb .id);
 };
 
-let vy = true;
-let oj = {};
+        let  nb =	document  .createElement("button");
 
-try {
-  localStorage.setItem("test", "1");
-  localStorage.removeItem("test");
-} catch (ux) {
-  vy = false;
+
+	nb.className = "delete-button"  ;
+     nb.textContent = "Delete";
+nb.onclick =  function () {
+deleteUser  (  xb.  id  );
+ }  ;
+
+hq  .appendChild(ig) ;
+	hq  . appendChild(nb );
+ lb. appendChild(hq  );
 }
 
-function storageGet(oe) {
-  if (vy) {
-    return localStorage.getItem(oe);
-  }
-  if (oe in oj) {
-    return oj[oe];
-  }
-  return null;
+
+     showScreen("userspage");
 }
 
-function storageSet(oe, zb) {
-  if (vy) {
-    try {
-      localStorage.setItem(oe, zb);
-      return;
-    } catch (ux) {
-      alert("Couldn't save: the phone's storage for this app is full.");
-    }
+     function  addUser( ) {
+	let	cv	=	el("name").value.trim() ;
+	let ek =  readNumber( "age"  )  ;
+
+
+if (cv	==	"") {
+  alert("Please enter a name.");
+return ;
+}
+ if   ( ek	<  8 ||  ek   > 100)	{
+ alert("Please enter an age between 8 and 100.");
+return;
   }
-  oj[oe] = String(zb);
+
+  let  lr = loadUsers () ;
+
+
+for   (let   nz =   0 ; nz  <  lr .length ; nz =	nz +   1) {
+if  (lr [nz]  .name  . toLowerCase()	==  cv.toLowerCase(  ))  {
+alert ("There is already a user called " +  lr[nz].name + ".");
+  return;
+        }
+     }
+
+
+	let  qi  = {}  ;
+  qi.id  =   Date.  now( );
+qi.name	=   cv  ;
+	qi . age =	ek  ;
+lr.push(qi);
+saveUsers(lr)  ;
+        switchToUser(  qi.id) ;
+
+
+	}
+
+ function storageGet(oe  ) {
+  if  ( vy  )	{
+  return   localStorage .getItem( oe);
+	}
+if   (oe in oj)	{
+ return oj[oe];
+ }
+ return null;
+        }
+
+
+ function deleteUser(ii)	{
+  let  lr   = loadUsers();
+let  qi =	null;
+for  ( let nz =  0; nz   < lr .length;  nz = nz +	1)   {
+ if (lr[nz  ]. id  ==  ii  )	{
+ qi = lr  [ nz  ];
+}
+  }
+
+	if (!confirm(  "Delete "   + qi .name  + " and all their sessions? This can't be undone."))  {
+        return;
 }
 
-function storageRemove(oe) {
-  if (vy) {
-    localStorage.removeItem(oe);
-  }
-  delete oj[oe];
+
+        storageRemove("workouts-"  +  ii +   ".csv");
+  let  ad =	[] ;
+     for  (let	nz =	0;  nz < lr. length; nz = nz	+ 1)	{
+if (lr[nz].id != ii  )   {
+ad  .  push(lr[nz]  );
+ }
 }
 
-function loadUsers() {
-  let jk = storageGet("users");
-  if (jk == null) {
-    return [];
+
+  saveUsers(  ad);
+
+  if (storageGet  ("currentUser")   ==  String(ii)) {
+ storageRemove ("currentUser" );
+     }
+
+
+	if (  ad  . length	==  0)	{
+  showAddUserScreen();
+     }	else	{
+  showUserScreen();
+}
+     }
+
+  function compareSessions(  qb ,	hc  ) {
+
+
+	if  (qb .date   <  hc.date) {
+  return -1  ;
   }
-  return JSON.parse(jk);
+if (qb. date  >	hc.date)	{
+
+
+return 1;
+     }
+return qb.id	-  hc.id  ;
+        }
+
+
+     function todayText  ()   {
+        let   ix =	new Date();
+     let ui =	twoDigits(  ix.getMonth()   +	1) ;
+  let wn =	twoDigits (ix  .  getDate(  ) );
+return   ix  .  getFullYear()   +   "-"	+	ui + "-"	+  wn;
 }
 
-function saveUsers(lr) {
-  storageSet("users", JSON.stringify(lr));
+ function	importCSV(aj  )   {
+ let   kh =	aj .files[0];
+     if   (!kh )  {
+     return;
+     }
+
+
+  let dj =  new  FileReader();
+        dj  .onload	= function ()   {
+ let   bj   =  dj.result.  trim();
+     let	va  =   bj.  split  ("\n" ) ;
+if (va.length < 2)   {
+        alert  ( "That file has no sessions in it.");
+     return  ;
 }
 
-function getCurrentUser() {
-  let uw = storageGet("currentUser");
-  let lr = loadUsers();
-  for (let nz = 0; nz < lr.length; nz = nz + 1) {
-    if (String(lr[nz].id) == uw) {
-      return lr[nz];
-    }
-  }
-  return null;
+  let  xg   =  cleanRow( va[ 0] );
+ for  (let nz  =   0;	nz   < xg .length;   nz   = nz + 1)   {
+        xg [nz]   = xg  [nz  ]  .  toLowerCase();
+	}
+
+let	dq  = findColumn (xg,  ["date"]);
+	let	tp = findColumn(xg,  [  "sport"]  );
+     let fn =  findColumn( xg, ["duration",   "minutes"]);
+        let   jd	=	findColumn  (xg  ,	[ "effort"] );
+	let	zs  =   findColumn(  xg,	["peak"]  );
+let an =   findColumn(  xg  ,	["onemin",  "1-min"]);
+	let	rz  = findColumn  ( xg,	["sore"]  );
+
+     if (zs == -1   ||   an ==   -1)	{
+alert  ("This CSV doesn't have peak and 1-minute heart rate columns."  );
+        return  ;
 }
 
-function setCurrentUser(ii) {
-  storageSet("currentUser", String(ii));
+  let  wq =	[]  ;
+ for (  let nz	= 1;   nz <   va.  length;  nz = nz   + 1)	{
+let   uv =   cleanRow(va[nz]  );
+ let	ee  =   [ ];
+if (rz !=   -1	&&	uv[ rz  ])	{
+     let  np  =   uv[rz ] .split( ";");
+for   (  let wg   =	0; wg	< np.length;	wg =	wg +  1) {
+ let pf = np[wg  ].trim();
+ if   (pf !=  "")  {
+	ee.push (pf);
+	}
+}
+ }
+
+  let gz ;
+
+
+	if  (dq   ==   -  1) {
+     gz = todayText  ();
+  }  else {
+     gz	= uv [dq];
+     }
+        let  ss	= "Other"  ;
+     if	(tp  !=  -1)  {
+
+
+     ss   =   uv[tp];
+}
+  let	md   =   0;
+     if   (fn  !=	-  1)   {
+
+
+md	=	uv[fn  ];
+	}
+  let   qo = 5;
+if (jd != - 1) {
+     qo  = uv[jd  ] ;
 }
 
-function csvKey() {
-  return "workouts-" + storageGet("currentUser") + ".csv";
+     let uf = { };
+        uf .  date   =  gz;
+	uf.sport	=   ss;
+uf  .duration =	md;
+	uf.effort   = qo  ;
+	uf  .peak	=   uv[zs]  ;
+ uf .oneMin   = uv[ an];
+uf. sore =	ee;
+let	nv  = sessionFromOld (uf ,	nz)  ;
+
+
+if (nv != null)	{
+  wq. push(nv  );
+}
+  }
+
+let bw  = addSessions (wq)  ;
+	alert(  "Added " + bw +   " sessions. ("  +  (wq.length	- bw) +	" were already in your history.)" );
+  aj.value  =   "";
+
+
+     showHistory();
+  } ;
+dj.readAsText(  kh);
+        }
+
+
+ function	pickSport( ss ) {
+  uo = ss ;
+     el  ("sport")  . textContent  =   ss;
+showScreen("sessionpage");
+
+
+ }
+
+function  readSore()  {
+     let   fl  =   [];
+ for (let  nz  = 0; nz <	tz.length;  nz =	nz + 1)  {
+	if	(el(tz  [nz].toLowerCase( )  ).checked )	{
+  fl.push(tz[nz  ]);
+     }
+ }
+  return  fl;
 }
 
-function moveOldData() {
-  let lt = storageGet("profile");
-  if (lt == null || loadUsers().length > 0) {
-    return;
-  }
-  let tx = JSON.parse(lt);
-  let cv = tx.name;
-  if (!cv) {
-    cv = "Me";
-  }
-  let qi = {};
-  qi.id = Date.now();
-  qi.name = cv;
-  qi.age = tx.age;
-  saveUsers([qi]);
-  setCurrentUser(qi.id);
-
-  let ou = storageGet("workouts.csv");
-  if (ou != null) {
-    storageSet(csvKey(), ou);
-    storageRemove("workouts.csv");
-  }
-  storageRemove("profile");
+        function getCurrentUser( ) {
+  let   uw   = storageGet("currentUser") ;
+        let  lr =	loadUsers ();
+for  (let nz  =   0;   nz	< lr.length;	nz =   nz	+   1)  {
+        if (String(lr[nz].  id ) ==  uw) {
+        return lr [nz  ];
+}
+ }
+ return  null;
 }
 
-function importOldBrowserData() {
-  if (getCurrentUser() == null) {
-    return;
-  }
+function getRating(zi)   {
+	if	(zi >=  25) {
+  return   "Strong";
+}
+  if ( zi  >= 13)  {
+  return  "Normal";
+ }
+return	"Slow";
+     }
 
-  let ao = ["sessions", "recover_sessions"];
-  let bw = 0;
+ function   cleanRow ( yh)  {
+	let  bj =	yh . trim  ();
+	let uv  =   bj.split(",");
+ for ( let nz	=   0;   nz   < uv .length; nz  =	nz	+  1 ) {
+     let   pf =	uv[nz].trim();
+let  ca =   ""  ;
+for (let wg =	0;	wg	<  pf  .length;  wg   = wg  +  1) {
+        if   (pf [  wg]   != '"')	{
+     ca = ca   +  pf[wg];
+}
+}
+uv[nz]   =  ca  ;
 
-  for (let tf = 0; tf < ao.length; tf = tf + 1) {
-    let bj = storageGet(ao[tf]);
-    if (bj == null) {
-      continue;
-    }
 
-    let gf = [];
-    try {
-      gf = JSON.parse(bj);
-    } catch (ux) {
-      gf = [];
-    }
+	}
+	return  uv ;
+ }
 
-    let wq = [];
-    for (let nz = 0; nz < gf.length; nz = nz + 1) {
-      let nv = sessionFromOld(gf[nz], nz);
-      if (nv != null) {
-        wq.push(nv);
-      }
-    }
-    bw = bw + addSessions(wq);
+function   makeCSV  (  gb)	{
+let   bj =	wd   + "\n" ;
 
-    storageSet("backup-" + ao[tf], bj);
-    storageRemove(ao[tf]);
-  }
 
-  if (bw > 0) {
-    alert("Added " + bw + " sessions from an older version of the app.");
+        for  (let nz	= 0 ; nz <  gb.length;  nz =	nz  +	1)   {
+let	nv   = gb[ nz];
+     let hq =  [nv .id  , nv  .date , nv.sport, nv.  duration, nv .  effort, nv.  peak,   nv. oneMin,
+nv  . drop,  getRating(nv  .drop),	nv .  sore.  join(";")];
+bj   =  bj + hq .join  (  "," ) +   "\n" ;
+ }
+ return bj;
+ }
+
+	function  saveSession( ) {
+
+let   md =  readNumber  ("minutes");
+        let qo = readNumber  ("effort"  );
+        let hl = readNumber("peak")  ;
+	let  mg = readNumber("afterminute");
+
+        if	(md	<=   0	||  hl <= 0 ||	mg <=	0  ) {
+        showMessage("Please fill in duration, peak heart rate, and your 60-second heart rate.",   false);
+        return ;
+        }
+if ( mg   >=   hl  ) {
+     showMessage("Your 60-second heart rate should be lower than your peak. Please check your numbers.",  false );
+        return ;
+	}
+
+let   sb	= readSore() ;
+
+     let	qw  =	{};
+ qw.id  =	Date.now();
+ qw  .date =   todayText ();
+
+
+qw.sport	=	uo;
+
+
+        qw.duration =	md;
+	qw.effort   =  qo;
+ qw. peak	= hl;
+  qw.oneMin  = mg;
+
+
+qw .  drop   =  hl -  mg;
+
+
+     qw.sore	=   sb;
+
+     let  gb   = loadSessions() ;
+     if (ws == null) {
+     gb.push  (qw) ;
+} else   {
+	for (let nz = 0;  nz   < gb.length ; nz =	nz   +  1)  {
+
+
+	if  (gb  [nz].  id	==	ws) {
+     qw.id  = ws;
+qw.date =   gb[nz]. date;
+ gb[nz] = qw;
+     }
   }
 }
+     saveAllSessions  (gb) ;
 
-function sessionFromOld(uf, yf) {
-  let hl = Number(uf.peak);
-  let mg = Number(uf.oneMin);
-  if (isNaN(mg)) {
-    mg = Number(uf.onemin);
-  }
-  if (!(hl > 0) || !(mg > 0) || mg >= hl) {
-    return null;
+        showResult (qw,	gb);
+ws =   null;
+el ("save").textContent = "Save & see my result";
+ clearForm() ;
   }
 
-  let qo = Number(uf.effort);
-  if (isNaN(qo)) {
-    qo = Number(uf.exertion);
-  }
-  if (isNaN(qo)) {
-    qo = 5;
-  }
+	function markSore(fl)	{
+        for (let   nz   =	0;  nz < tz .  length; nz =	nz +  1) {
+        let  dx	=	false;
+        for ( let   wg   =	0; wg < fl.length; wg   = wg   +  1) {
+if ( fl[ wg] === tz[  nz]  )  {
+dx  =   true;
+ }
+        }
+ el(tz[nz].toLowerCase()).checked  = dx;
 
-  let az = [];
-  if (Array.isArray(uf.sore)) {
-    az = uf.sore;
-  } else if (uf.soreness) {
-    for (let nz = 0; nz < tz.length; nz = nz + 1) {
-      if (uf.soreness[tz[nz]]) {
-        az.push(tz[nz]);
-      }
-    }
-  }
 
-  let ss = uf.sport;
-  if (!ss) {
-    ss = "Other";
-  }
-  let md = Number(uf.duration);
-  if (!md) {
-    md = 0;
-  }
-
-  let qw = {};
-  qw.id = Date.now() + yf;
-  qw.date = toDateText(String(uf.date));
-  qw.sport = ss;
-  qw.duration = md;
-  qw.effort = qo;
-  qw.peak = hl;
-  qw.oneMin = mg;
-  qw.drop = hl - mg;
-  qw.sore = az;
-  return qw;
+        }
 }
 
-function twoDigits(zb) {
-  let bj = String(zb);
-  if (bj.length < 2) {
-    bj = "0" + bj;
-  }
-  return bj;
+
+
+
+ function   startTimer()  {
+	if   ( vb	!=	null) {
+        return;
+}
+ ki  =   60;
+	el("timer"  ). textContent  =	"Running...";
+vb =   setInterval(timerTick, 1000);
 }
 
-function toDateText(bj) {
-  if (bj.includes("T")) {
-    return bj.substring(0, 10);
-  }
-  if (bj.includes("/")) {
-    let oc = bj.split("/");
-    if (oc.length == 3) {
-      let ui = twoDigits(oc[0]);
-      let wn = twoDigits(oc[1]);
-      return oc[2] + "-" + ui + "-" + wn;
-    }
-  }
-  return bj;
+  function readCSV  (  bj)	{
+let	gb = [];
+	let  ru = bj.trim ();
+
+
+let  va =   ru.  split("\n");
+
+        for  ( let nz = 1;   nz   <   va .length;  nz =	nz   +  1) {
+let oc	=	va[nz].split(",");
+	if	(oc.length   <	10) {
+        continue;
+ }
+
+        let  az	=   [];
+if (oc [9  ]  !=   "")	{
+  az	=	oc  [9].split(";");
+
+
 }
 
-function addSessions(wq) {
-  let gb = loadSessions();
-  let bw = 0;
+     let qw =   {  };
 
-  for (let nz = 0; nz < wq.length; nz = nz + 1) {
-    let nv = wq[nz];
-    let qt = false;
-    for (let wg = 0; wg < gb.length; wg = wg + 1) {
-      if (gb[wg].date == nv.date && gb[wg].peak == nv.peak && gb[wg].oneMin == nv.oneMin) {
-        qt = true;
-      }
-    }
-    if (!qt) {
-      gb.push(nv);
-      bw = bw + 1;
-    }
+
+qw  .id  =   Number  (oc[0] );
+ qw. date =	oc[1]  ;
+        qw.sport = oc[ 2 ] ;
+qw. duration =  Number (oc[3 ]);
+qw.effort = Number(  oc[4] );
+     qw.peak  = Number(  oc[5])  ;
+ qw.  oneMin =  Number(oc[6  ]);
+     qw .  drop =  Number  (oc[7]) ;
+
+
+qw.sore	=	az;
+gb  .push  (qw);
+ }
+ return	gb;
   }
 
-  gb.sort(compareSessions);
-
-  saveAllSessions(gb);
-  return bw;
+	function  storageSet(oe, zb  )   {
+        if   (vy) {
+        try	{
+        localStorage.  setItem (oe, zb);
+        return ;
+        }  catch (ux)  {
+	alert("Couldn't save: the phone's storage for this app is full.");
 }
+	}
+oj[oe]  =  String(zb) ;
+        }
 
-function makeCSV(gb) {
-  let bj = wd + "\n";
-  for (let nz = 0; nz < gb.length; nz = nz + 1) {
-    let nv = gb[nz];
-    let hq = [nv.id, nv.date, nv.sport, nv.duration, nv.effort, nv.peak, nv.oneMin,
-               nv.drop, getRating(nv.drop), nv.sore.join(";")];
-    bj = bj + hq.join(",") + "\n";
+  function	shareSession(ii) {
+	let	nv =   findSession(ii);
+let	qi  = getCurrentUser();
+let  qg	= "none";
+if	(nv. sore.length  >  0  )	{
+qg = nv.sore.  join(", ")  ;
   }
-  return bj;
+
+        let   rg = "Recovery Report - " +	qi.name	+ "\n";
+ rg =   rg	+	"Date: "	+ nv  . date +  "\n";
+
+
+rg =   rg   + "Sport: "   + nv . sport  +  "\n"  ;
+     rg = rg  +  "Duration: "  +	nv.  duration   + " min, Effort: " +	nv.effort	+ "/10\n";
+  rg = rg   +   "Peak HR: "	+ nv.peak   +  ", 1-min HR: "	+ nv  .oneMin	+ "\n";
+     rg  =	rg   +  "Recovery: "	+ nv. drop  + " bpm drop ("   + getRating(nv.drop)	+	")\n";
+ rg	=   rg  + "Sore: "   +	qg;
+
+
+     if	( navigator.  share)  {
+  navigator.share({ title:   "Recovery Report", text :   rg   })  . catch(  function	(  ) { } );
+return;
+        }
+if	(navigator. clipboard)	{
+     navigator.clipboard  .  writeText(rg)
+        .then(function () {
+     alert ("Report copied! You can paste it anywhere.");
+})
+	.catch(function ()  {
+showCopyBox ( rg);
+     });
+return ;
 }
-
-function readCSV(bj) {
-  let gb = [];
-  let ru = bj.trim();
-  let va = ru.split("\n");
-
-  for (let nz = 1; nz < va.length; nz = nz + 1) {
-    let oc = va[nz].split(",");
-    if (oc.length < 10) {
-      continue;
-    }
-
-    let az = [];
-    if (oc[9] != "") {
-      az = oc[9].split(";");
-    }
-
-    let qw = {};
-    qw.id = Number(oc[0]);
-    qw.date = oc[1];
-    qw.sport = oc[2];
-    qw.duration = Number(oc[3]);
-    qw.effort = Number(oc[4]);
-    qw.peak = Number(oc[5]);
-    qw.oneMin = Number(oc[6]);
-    qw.drop = Number(oc[7]);
-    qw.sore = az;
-    gb.push(qw);
+	showCopyBox(  rg);
   }
-  return gb;
+
+
+
+        function drawTrend( gb ) {
+
+
+let gg  =  gb  .  slice(-20);
+
+
+
+  let   ci	=	el(  "graph"  )  ;
+let  mn = ci. getContext(  "2d");
+
+
+let   xl	=   ci.clientWidth;
+  let  lz =   ci.clientHeight;
+
+
+	let   ts	=   window.devicePixelRatio;
+     if	(!  ts)   {
+ ts =	1 ;
+        }
+ ci  .width =	xl	* ts;
+ci. height	= lz  *	ts;
+mn.scale(ts , ts) ;
+        mn.clearRect(0,   0,	xl , lz);
+
+let   ie   =  34;
+	let	xv =  xl -	30 ;
+let ky =   12;
+ let   cr	= lz - 28;
+
+let   pr = 40;
+for  (let  nz  = 0;   nz <	gg. length; nz   =  nz  +   1)	{
+     if ( gg[ nz].drop  +	5   >   pr)   {
+  pr = gg[nz] .drop   + 5;
+  }
+  }
+pr  = Math.ceil(pr   /	10) *   10 ;
+
+function   xFor  (nz)   {
+return ie + nz * (xv -   ie)   / (gg  .length -   1  )  ;
+	}
+     function  yFor(zi)  {
+ return  cr -	(  Math .max  (0,	zi)   / pr)	*  (cr  - ky  );
 }
 
-function loadSessions() {
-  let bj = storageGet(csvKey());
-  if (bj == null) {
-    return [];
-  }
-  return readCSV(bj);
+	mn.  font  = "12px Arial";
+     mn  .lineWidth   = 1;
+
+        for (  let zb =   0; zb  <=   pr  ; zb   =	zb + 10) {
+mn  .strokeStyle	=   "#34508A";
+mn.  beginPath(  )  ;
+mn.  moveTo  (ie , yFor  ( zb));
+	mn .lineTo(xv,	yFor(zb  ));
+mn.  stroke();
+
+
+  mn.fillStyle  =  "#A9BFF8";
+mn .textAlign	= "right";
+ mn.fillText  (zb, ie  -   6, yFor(zb)  + 4);
+ }
+
+mn.strokeStyle = "#FF9A80";
+mn.setLineDash([  5 ,  5]  );
+  mn.beginPath  ();
+ mn  . moveTo (ie, yFor(13 ) ) ;
+mn. lineTo (  xv, yFor(13)) ;
+ mn.stroke () ;
+     mn.  setLineDash([])  ;
+     mn.  fillStyle	=   "#FFB8A6";
+mn.  textAlign =	"left";
+mn.fillText("slow",  ie  +  4,   yFor  (13) -	5);
+
+        mn.strokeStyle   =  "#7FE0C8"  ;
+	mn.  lineWidth =	2  ;
+mn  . beginPath  ( );
+  for   (let   nz =	0;   nz <	gg.length;	nz =  nz +   1) {
+	if (nz   ==	0) {
+ mn. moveTo  (xFor(nz), yFor(gg[nz].drop  )) ;
+  } else {
+        mn.  lineTo(xFor(nz),  yFor (  gg[  nz ].drop)) ;
 }
+  }
+
+
+     mn.  stroke(  ) ;
+
+     gl =  [];
+ for  (  let nz =  0; nz <  gg.length ;	nz	= nz + 1)   {
+  let kk  =	xFor( nz  );
+	let   nl =   yFor(gg[ nz].  drop  );
+        mn  .fillStyle =  "#7FE0C8"  ;
+        mn.strokeStyle	=  "#213B8A";
+        mn.lineWidth   = 2;
+     mn. beginPath( ) ;
+     mn.arc  (kk,	nl,  5, 0, 2	* Math  .PI);
+	mn  .fill ( );
+ mn.stroke()  ;
+  gl .push( {	x :   kk , y: nl ,  session: gg  [nz ]  }  );
+  }
+
+
+let   sl =  gg [gg .length  -  1]  ;
+ mn .fillStyle	= "#E2E9FF";
+     mn.font	= "bold 13px Arial";
+ mn.textAlign =   "left" ;
+mn.fillText(sl. drop  , xFor  (gg.length - 1) +	8,   yFor (  sl.  drop )	+   4);
+
+mn . font   =	"12px Arial";
+     mn.fillStyle =   "#A9BFF8"  ;
+  mn  .textAlign = "left";
+mn  .fillText(shortDate ( gg[0] .date),   ie ,   lz	- 8);
+mn.textAlign  = "right";
+        mn.fillText(shortDate(sl.date), xv,	lz -	8 );
+
+
+
+
+	el("graphtext")  .  textContent  = trendSummary(gg)  ;
+        el(  "graphinfo")  .textContent	= "Tap a dot to see that session.";
+     }
 
 function saveAllSessions(gb) {
-  storageSet(csvKey(), makeCSV(gb));
+
+
+storageSet(csvKey( ), makeCSV(gb));
+
+
 }
 
-function todayText() {
-  let ix = new Date();
-  let ui = twoDigits(ix.getMonth() + 1);
-  let wn = twoDigits(ix.getDate());
-  return ix.getFullYear() + "-" + ui + "-" + wn;
+        function   exportCSV ()   {
+
+
+	let   bj = makeCSV(loadSessions(  ) );
+
+
+
+     let to	=	"recovery-sessions-"   + getCurrentUser( ).name   + ".csv" ;
+ let kh	=	new	File([  bj]  ,  to ,	{ type  : "text/csv"   }  );
+
+
+	if  (navigator.  canShare	&& navigator.canShare({  files:  [  kh]	}))  {
+	navigator.  share({ files  :	[kh],	title:  "Recovery sessions"   }).catch(function () {});
+     }   else   {
+        let kx  = document .  createElement("a");
+ kx.href	= URL.createObjectURL (kh);
+  kx.download   = to;
+ kx.click();
+  }
+  }
+
+  function	setCurrentUser(ii)  {
+  storageSet(  "currentUser",   String(ii) );
+ }
+
+  function findSession(ii )  {
+        let   gb =  loadSessions( );
+        for   (let  nz =	0; nz <  gb.length;   nz =   nz	+	1 ) {
+	if (gb[nz ]  .  id ==  ii ) {
+        return   gb[nz] ;
+        }
+}
+return	null;
+ }
+
+  function  toDateText(bj)  {
+     if (bj.includes(  "T"))   {
+return bj.  substring(0,  10);
+ }
+        if   (bj. includes( "/" )) {
+ let   oc	=	bj  .split  (  "/");
+     if (oc .length	== 3  )	{
+ let  ui   = twoDigits(  oc[0  ]);
+ let   wn   =	twoDigits(oc[1]) ;
+     return  oc[2 ]	+ "-"  + ui +  "-"	+  wn;
+ }
+}
+	return   bj;
 }
 
-function showScreen(hx) {
-  let yo = ["userScreen", "profileScreen", "sportScreen", "newScreen", "historyScreen"];
-  for (let nz = 0; nz < yo.length; nz = nz + 1) {
-    el(yo[nz]).classList.add("hidden");
-  }
-  el(hx).classList.remove("hidden");
 
-  let qi = getCurrentUser();
-  let rw = false;
-  if (qi != null && hx != "userScreen" && hx != "profileScreen") {
-    rw = true;
-  }
-  if (rw) {
-    el("userBar").classList.remove("hidden");
-  } else {
-    el("userBar").classList.add("hidden");
-  }
-  if (qi != null) {
-    el("userNameText").textContent = qi.name;
-  }
 
-  if (hx == "newScreen" || hx == "historyScreen") {
-    el("tabBar").classList.remove("hidden");
-  } else {
-    el("tabBar").classList.add("hidden");
-  }
-  if (hx == "newScreen") {
-    el("newTabButton").classList.add("active");
-  } else {
-    el("newTabButton").classList.remove("active");
-  }
-  if (hx == "historyScreen") {
-    el("historyTabButton").classList.add("active");
-    showHistory();
-  } else {
-    el("historyTabButton").classList.remove("active");
-  }
-  window.scrollTo(0, 0);
+ function getAverageDrop (gb) {
+if   (  gb.length   == 0)   {
+return 0;
+     }
+let lo	= 0  ;
+for (let nz =   0  ;	nz	<  gb.length;   nz = nz  +	1 ) {
+lo   =	lo	+	gb  [nz  ].drop  ;
+	}
+	return  Math .round(lo   /   gb .  length);
 }
 
-function showUserScreen() {
-  let lr = loadUsers();
-  let lb = el("userList");
-  lb.innerHTML = "";
 
-  for (let nz = 0; nz < lr.length; nz = nz + 1) {
-    let xb = lr[nz];
-    let hq = document.createElement("div");
-    hq.className = "user-row";
 
-    let ig = document.createElement("button");
-    ig.className = "pick-user";
-    ig.textContent = xb.name + "  ";
-    let wf = document.createElement("small");
-    wf.textContent = "age " + xb.age;
-    ig.appendChild(wf);
-    ig.onclick = function () {
-      switchToUser(xb.id);
-    };
-
-    let nb = document.createElement("button");
-    nb.className = "delete-button";
-    nb.textContent = "Delete";
-    nb.onclick = function () {
-      deleteUser(xb.id);
-    };
-
-    hq.appendChild(ig);
-    hq.appendChild(nb);
-    lb.appendChild(hq);
+function showAddUserScreen () {
+el("name")  .  value =  "";
+        el ("age" ) .  value   =  "";
+let   lr =	loadUsers ();
+	if	(lr .length == 0  ) {
+el("cancel" ).classList.add( "hidden"  ) ;
+}   else  {
+  el("cancel").  classList. remove("hidden")  ;
+  }
+showScreen  ("adduserpage" );
   }
 
-  showScreen("userScreen");
+function showMessage (  bj, qm ) {
+  let	zc	= el("result") ;
+zc.textContent  =  bj  ;
+if (qm)	{
+ zc.className = "result result-good";
+	} else  {
+  zc.className = "result result-bad"  ;
+ }
+
+
+zc .scrollIntoView({  behavior :	"smooth" });
+	}
+
+     function	csvKey  (  )   {
+	return	"workouts-" + storageGet("currentUser") +   ".csv";
+  }
+
+  function   importOldBrowserData()  {
+        if  (getCurrentUser( )  == null) {
+return;
 }
 
-function showAddUserScreen() {
-  el("nameInput").value = "";
-  el("ageInput").value = "";
-  let lr = loadUsers();
-  if (lr.length == 0) {
-    el("cancelAddButton").classList.add("hidden");
-  } else {
-    el("cancelAddButton").classList.remove("hidden");
-  }
-  showScreen("profileScreen");
+
+
+  let	ao   =   ["sessions",  "recover_sessions"];
+        let   bw  = 0 ;
+
+
+	for  (let tf	=	0; tf <	ao.length  ;	tf = tf  +	1)  {
+	let	bj   = storageGet( ao[tf]);
+	if (bj   ==	null)  {
+	continue  ;
+        }
+
+let gf =  [];
+try   {
+	gf = JSON.parse(bj);
+}	catch	(ux) {
+ gf	=   [];
 }
 
-function addUser() {
-  let cv = el("nameInput").value.trim();
-  let ek = readNumber("ageInput");
 
-  if (cv == "") {
-    alert("Please enter a name.");
-    return;
-  }
-  if (ek < 8 || ek > 100) {
-    alert("Please enter an age between 8 and 100.");
-    return;
-  }
+     let wq = [ ];
+ for  (  let nz =	0;	nz <  gf .length;	nz = nz   + 1) {
+let  nv   =   sessionFromOld(gf[nz], nz)  ;
+if  (nv	!=   null)   {
+wq.  push(nv)  ;
+}
+	}
+bw   = bw   +	addSessions  ( wq);
 
-  let lr = loadUsers();
-  for (let nz = 0; nz < lr.length; nz = nz + 1) {
-    if (lr[nz].name.toLowerCase() == cv.toLowerCase()) {
-      alert("There is already a user called " + lr[nz].name + ".");
-      return;
-    }
-  }
+storageSet("backup-" + ao[tf],  bj)  ;
+	storageRemove( ao[  tf]) ;
+        }
 
-  let qi = {};
-  qi.id = Date.now();
-  qi.name = cv;
-  qi.age = ek;
-  lr.push(qi);
-  saveUsers(lr);
-  switchToUser(qi.id);
+
+        if	(bw  > 0) {
+alert ("Added " +	bw	+ " sessions from an older version of the app.");
+}
 }
 
-function switchToUser(ii) {
-  setCurrentUser(ii);
-  importOldBrowserData();
+  function   shortDate(  gz) {
 
-  ws = null;
-  el("saveButton").textContent = "Save & see my result";
-  el("resultBox").className = "";
-  el("resultBox").textContent = "";
-  clearForm();
 
-  showSportScreen();
+let oc   =  gz  .split("-"  );
+	if  ( oc  .length < 3) {
+     return	gz;
+     }
+return oc [1 ] +	"/"	+  oc[2];
 }
 
-function deleteUser(ii) {
-  let lr = loadUsers();
-  let qi = null;
-  for (let nz = 0; nz < lr.length; nz = nz + 1) {
-    if (lr[nz].id == ii) {
-      qi = lr[nz];
-    }
+
+ function showScreen(hx)	{
+let   yo   =  ["userspage", "adduserpage",  "sportspage"  ,  "sessionpage", "historypage"  ] ;
+ for	(let   nz  = 0;	nz	<	yo.length; nz	=  nz + 1) {
+     el( yo[nz]).classList.add("hidden" );
+	}
+  el  (hx).classList .remove("hidden");
+
+  let  qi   =   getCurrentUser ();
+  let   rw  =   false;
+        if   (qi != null &&   hx != "userspage" && hx   !=  "adduserpage" )  {
+ rw = true;
+	}
+
+
+ if (rw)   {
+ el("currentuser" ).classList.remove( "hidden");
+ }	else   {
+	el("currentuser").classList.add ("hidden") ;
+}
+        if  (qi	!=  null) {
+     el("username"  ).textContent = qi.name;
   }
 
-  if (!confirm("Delete " + qi.name + " and all their sessions? This can't be undone.")) {
-    return;
-  }
 
-  storageRemove("workouts-" + ii + ".csv");
-  let ad = [];
-  for (let nz = 0; nz < lr.length; nz = nz + 1) {
-    if (lr[nz].id != ii) {
-      ad.push(lr[nz]);
-    }
+        if (hx	==  "sessionpage"   ||   hx ==	"historypage")   {
+el  ("menu"  ).classList .remove (  "hidden");
+	} else   {
+el("menu").classList .add("hidden");
   }
-  saveUsers(ad);
+	if (hx ==  "sessionpage"  ) {
+  el("newtab"  ).classList.add("active"  );
+}  else {
+el ("newtab"). classList.  remove("active") ;
 
-  if (storageGet("currentUser") == String(ii)) {
-    storageRemove("currentUser");
-  }
 
-  if (ad.length == 0) {
-    showAddUserScreen();
-  } else {
-    showUserScreen();
-  }
+ }
+if   (hx ==   "historypage")	{
+
+
+el("historytab").classList.  add("active") ;
+showHistory(  );
+        }   else {
+
+
+     el( "historytab"  ).classList. remove("active");
+	}
+window.scrollTo( 0 ,	0);
 }
 
-function showSportScreen() {
-  let qi = getCurrentUser();
-  el("greeting").textContent = "Hey " + qi.name + "! What are you playing today?";
-  showScreen("sportScreen");
+function   editSession (ii) {
+	let   nv	= findSession(ii) ;
+
+        el (  "minutes").value	= nv .duration;
+
+
+  el("effort"  ).value =	nv .  effort  ;
+	updateEffortText  ();
+	el  (  "peak")  .value	= nv.peak ;
+el("afterminute"). value  =  nv.oneMin;
+markSore  (nv.sore);
+
+     uo  =	nv  .  sport;
+        el("sport").textContent   =   nv.sport  ;
+
+
+ ws	=	ii;
+el  (  "save") .textContent = "Update session";
+	el(  "result")  .  className   =   "";
+     el("result").textContent   =	"";
+showScreen("sessionpage" ) ;
+        }
+
+ function   showResult(qw,	gb)   {
+     let kd   =   getRating  (qw.drop );
+  let   dd  =   "Your heart rate dropped "   +  qw. drop	+   " bpm in 1 minute. That is a "  + kd +   " recovery. " ;
+	let qm  = (kd   != "Slow");
+
+     if  (gb  .length  >= 4  )   {
+	let	iq   = getAverageDrop(gb  ) ;
+ if	(qw .  drop < iq  -	8)	{
+	dd =  dd   +   "It's lower than your average of "  +  iq	+   " bpm, so you may still be tired. ";
+qm =  false;
+
+
+	} else {
+	dd   =  dd + "Your average is "   +  iq	+ " bpm. ";
+}
 }
 
-function pickSport(ss) {
-  uo = ss;
-  el("sportLabel").textContent = ss;
-  showScreen("newScreen");
+     if   (  qw.sore.  length   >= 3) {
+        dd =	dd  + "You are sore in a lot of places. ";
+	qm = false;
+ }
+
+if  ( qm) {
+dd  =  dd +	"You look recovered. Normal training should be fine.";
+ } else {
+ dd  =  dd +	"Take it easy next time: light activity or rest, plus good sleep and water." ;
+        }
+
+ showMessage(  dd ,  qm);
 }
 
-function updateEffortText() {
-  el("effortText").textContent = el("effortInput").value;
+function  saveUsers(lr)  {
+  storageSet( "users",   JSON.stringify(lr  ));
+ }
+
+	function   addSessions(wq)	{
+     let   gb	=  loadSessions()  ;
+let   bw	= 0;
+
+
+  for (let nz  = 0; nz <	wq.length;  nz	=   nz	+   1  )   {
+     let   nv	=	wq [nz] ;
+let qt = false;
+
+
+for  ( let   wg  =  0;	wg   <   gb.length;  wg	=   wg +   1  ) {
+        if   ( gb[wg  ].date   == nv.date  && gb[wg].peak  ==   nv  .peak  && gb[wg].oneMin	==  nv  .oneMin) {
+        qt  =  true;
+}
+     }
+if (!qt)  {
+gb.  push(nv);
+ bw   =   bw	+ 1;
+ }
 }
 
-function startTimer() {
-  if (vb != null) {
-    return;
-  }
-  ki = 60;
-  el("timerButton").textContent = "Running...";
-  vb = setInterval(timerTick, 1000);
+ gb  .sort  (  compareSessions  );
+
+        saveAllSessions(gb);
+return  bw;
 }
 
-function timerTick() {
-  ki = ki - 1;
-  el("timerText").textContent = ki;
+function showTrendPoint ( ri ) {
+if ( gl.length   ==   0)	{
 
-  if (ki <= 0) {
-    clearInterval(vb);
-    vb = null;
-    el("timerButton").textContent = "Start again";
-    if (navigator.vibrate) {
-      navigator.vibrate([200, 100, 200]);
-    }
-    alert("Time's up! Check your heart rate now.");
-    el("oneMinInput").focus();
+
+return;
   }
+  let zc  = el  ("graph").getBoundingClientRect  () ;
+ let   od  =   ri .clientX   - zc  .left;
+
+ let  rl	= gl[0];
+	for (let	nz   = 1; nz   <  gl  .length; nz	=   nz  + 1)	{
+        if (Math. abs (gl [nz]  .x  -   od  )   <  Math.abs(rl.x   - od))   {
+
+
+     rl =  gl[ nz ];
+        }
+
+
+	}
+
+     let nv = rl. session  ;
+ el( "graphinfo"  ).textContent	=
+	shortDate (  nv.date)	+  " · " +  nv. sport   + " · dropped " +	nv . drop +   " bpm ("  +   getRating  (nv  .drop) +  ")" ;
+     }
+
+
+        function	showInstallTip()	{
+	let  vx  = window.matchMedia ("(display-mode: standalone)").matches	||	navigator.standalone == true ;
+	if  (vx)	{
+ return;
+	}
+
+        let pq = navigator.userAgent;
+     let  mo   =	pq  .includes("iPhone" )	||  pq.  includes("iPad" );
+ let	ax   =   pq  .includes("Android" )  ;
+     let   bj	=   "";
+
+
+if (mo)  {
+     bj  = "In Safari, tap the Share button, then \"Add to Home Screen\".";
+        } else  if ( ax)  {
+     bj   =   "In Chrome, tap the ⋮ menu, then \"Add to Home screen\"."  ;
+} else	{
+
+
+     return  ;
 }
 
-function saveSession() {
-
-  let md = readNumber("durationInput");
-  let qo = readNumber("effortInput");
-  let hl = readNumber("peakInput");
-  let mg = readNumber("oneMinInput");
-
-  if (md <= 0 || hl <= 0 || mg <= 0) {
-    showMessage("Please fill in duration, peak heart rate, and your 60-second heart rate.", false);
-    return;
-  }
-  if (mg >= hl) {
-    showMessage("Your 60-second heart rate should be lower than your peak. Please check your numbers.", false);
-    return;
+  el("installhelp").textContent	= " "  + bj  ;
+el("install").classList.remove ("hidden" );
   }
 
-  let sb = readSore();
+function showHistory( )	{
+        el( "copyhelp"). classList.add("hidden") ;
+let gb   = loadSessions  (  );
+        let lb	= el("sessions");
+        lb .innerHTML =   "";
 
-  let qw = {};
-  qw.id = Date.now();
-  qw.date = todayText();
-  qw.sport = uo;
-  qw.duration = md;
-  qw.effort = qo;
-  qw.peak = hl;
-  qw.oneMin = mg;
-  qw.drop = hl - mg;
-  qw.sore = sb;
+  if  (gb.length  >=   2)	{
+el("graphbox") .classList.remove("hidden" );
+drawTrend(gb);
+	}  else {
+	el("graphbox").classList. add ( "hidden"  );
+	}
 
-  let gb = loadSessions();
-  if (ws == null) {
-    gb.push(qw);
-  } else {
-    for (let nz = 0; nz < gb.length; nz = nz + 1) {
-      if (gb[nz].id == ws) {
-        qw.id = ws;
-        qw.date = gb[nz].date;
-        gb[nz] = qw;
-      }
-    }
-  }
-  saveAllSessions(gb);
+if (gb.length  ==   0) {
+lb  .innerHTML	=  "<p class='small-note'>No sessions yet. Save one from the New tab.</p>";
+el(  "average").textContent	= "";
+	return;
 
-  showResult(qw, gb);
-  ws = null;
-  el("saveButton").textContent = "Save & see my result";
-  clearForm();
+
 }
 
-function getRating(zi) {
-  if (zi >= 25) {
-    return "Strong";
-  }
-  if (zi >= 13) {
-    return "Normal";
-  }
-  return "Slow";
-}
+let iq  = getAverageDrop(gb);
+  let bj = "Sessions: "  +	gb.length;
+     bj	= bj +   "  |  Average drop: "  +  iq + " bpm";
+	el  (  "average"  ).textContent  =	bj;
 
-function getAverageDrop(gb) {
-  if (gb.length == 0) {
-    return 0;
-  }
-  let lo = 0;
-  for (let nz = 0; nz < gb.length; nz = nz + 1) {
-    lo = lo + gb[nz].drop;
-  }
-  return Math.round(lo / gb.length);
-}
+for	(let	nz =	gb .length  -	1;  nz  >=   0;	nz   = nz  - 1)  {
+        let nv   = gb[nz];
+let qg =	"none";
+if   (  nv. sore.  length >   0)   {
+     qg =  nv.sore  .join ( ", "  );
+ }
 
-function showResult(qw, gb) {
-  let kd = getRating(qw.drop);
-  let dd = "Your heart rate dropped " + qw.drop + " bpm in 1 minute. That is a " + kd + " recovery. ";
-  let qm = (kd != "Slow");
+let	ef	=   document. createElement  ("div")  ;
+        ef.className = "history-item"  ;
+     let ob	= "<b>"	+   nv.  sport  + " - " +	nv  .date +  "</b><br>"  ;
+ob =   ob	+   nv.duration   +  " min, effort " + nv.effort   + "/10<br>"  ;
+        ob   =  ob	+  "Heart rate "   +  nv.  peak  +  " → " +	nv.oneMin;
 
-  if (gb.length >= 4) {
-    let iq = getAverageDrop(gb);
-    if (qw.drop < iq - 8) {
-      dd = dd + "It's lower than your average of " + iq + " bpm, so you may still be tired. ";
-      qm = false;
-    } else {
-      dd = dd + "Your average is " + iq + " bpm. ";
-    }
-  }
 
-  if (qw.sore.length >= 3) {
-    dd = dd + "You are sore in a lot of places. ";
-    qm = false;
-  }
+ob = ob	+  " (drop " + nv.drop   + ", "  +  getRating(nv  .drop ) +	")<br>" ;
 
-  if (qm) {
-    dd = dd + "You look recovered. Normal training should be fine.";
-  } else {
-    dd = dd + "Take it easy next time: light activity or rest, plus good sleep and water.";
-  }
 
-  showMessage(dd, qm);
-}
+        ob	=  ob + "Sore: "	+	qg   +	"<br>"  ;
 
-function showMessage(bj, qm) {
-  let zc = el("resultBox");
-  zc.textContent = bj;
-  if (qm) {
-    zc.className = "result result-good";
-  } else {
-    zc.className = "result result-bad";
-  }
-  zc.scrollIntoView({ behavior: "smooth" });
+
+  ob	= ob + "<button class='small-button' onclick='editSession("	+   nv  .id +	")'>Edit</button>";
+	ob   =  ob +  "<button class='small-button' onclick='shareSession(" +   nv.id	+	")'>Share</button>";
+	ob =  ob   + "<button class='small-button delete-button' onclick='deleteSession("   + nv  .id   +  ")'>Delete</button>" ;
+ ef.innerHTML = ob ;
+
+
+lb  .appendChild  (  ef)  ;
+ }
+     }
+
+
+function switchToUser (ii)  {
+     setCurrentUser(ii) ;
+importOldBrowserData();
+
+ws = null;
+el("save"  )  .  textContent = "Save & see my result";
+	el ("result" ) .className =	"";
+	el (  "result" ).textContent	= ""  ;
+clearForm () ;
+
+     showSportScreen(  );
+
+
 }
 
 function clearForm() {
-  let bu = ["durationInput", "peakInput", "oneMinInput"];
-  for (let nz = 0; nz < bu.length; nz = nz + 1) {
-    el(bu[nz]).value = "";
-  }
-  el("effortInput").value = 5;
-  updateEffortText();
-  markSore([]);
-  el("timerText").textContent = "60";
-  el("timerButton").textContent = "Start 60s timer";
+let bu	= ["minutes" ,  "peak"  , "afterminute"];
+for   (let   nz	=   0; nz <  bu  .length; nz  =	nz	+ 1)	{
+el(bu[nz]).value   =  "";
+	}
+  el("effort").value  =	5;
+updateEffortText();
+  markSore  ([ ]);
+	el ("seconds").textContent =	"60";
+  el("timer"). textContent =	"Start 60s timer";
+     }
+
+     let   gl	=  [  ];
+
+ function readNumber(  ii)  {
+     return Number(  el(  ii)  .value );
 }
 
-function showHistory() {
-  el("copyArea").classList.add("hidden");
-  let gb = loadSessions();
-  let lb = el("historyList");
-  lb.innerHTML = "";
 
-  if (gb.length >= 2) {
-    el("trendCard").classList.remove("hidden");
-    drawTrend(gb);
-  } else {
-    el("trendCard").classList.add("hidden");
+ function deleteSession(ii )  {
+        if	(!  confirm(  "Delete this session?" )) {
+     return;
+}
+	let gb   =  loadSessions();
+     let   ad  =  [] ;
+for (let	nz   = 0 ;  nz   < gb.length  ;   nz = nz +  1) {
+        if (gb [nz]. id !=   ii)   {
+  ad.push(gb [  nz  ]);
+}
+}
+saveAllSessions(  ad );
+ showHistory();
   }
 
-  if (gb.length == 0) {
-    lb.innerHTML = "<p class='small-note'>No sessions yet. Save one from the New tab.</p>";
-    el("averageText").textContent = "";
-    return;
-  }
+        function timerTick()   {
+ki   = ki   -   1;
+ el("seconds").textContent   =	ki;
 
-  let iq = getAverageDrop(gb);
-  let bj = "Sessions: " + gb.length;
-  bj = bj + "  |  Average drop: " + iq + " bpm";
-  el("averageText").textContent = bj;
 
-  for (let nz = gb.length - 1; nz >= 0; nz = nz - 1) {
-    let nv = gb[nz];
-    let qg = "none";
-    if (nv.sore.length > 0) {
-      qg = nv.sore.join(", ");
-    }
 
-    let ef = document.createElement("div");
-    ef.className = "history-item";
-    let ob = "<b>" + nv.sport + " - " + nv.date + "</b><br>";
-    ob = ob + nv.duration + " min, effort " + nv.effort + "/10<br>";
-    ob = ob + "Heart rate " + nv.peak + " → " + nv.oneMin;
-    ob = ob + " (drop " + nv.drop + ", " + getRating(nv.drop) + ")<br>";
-    ob = ob + "Sore: " + qg + "<br>";
-    ob = ob + "<button class='small-button' onclick='editSession(" + nv.id + ")'>Edit</button>";
-    ob = ob + "<button class='small-button' onclick='shareSession(" + nv.id + ")'>Share</button>";
-    ob = ob + "<button class='small-button delete-button' onclick='deleteSession(" + nv.id + ")'>Delete</button>";
-    ef.innerHTML = ob;
-    lb.appendChild(ef);
-  }
+
+if	(ki  <= 0  )	{
+  clearInterval (  vb)  ;
+     vb   =	null;
+        el("timer").textContent   =	"Start again";
+if   (navigator.vibrate)   {
+     navigator  .vibrate(  [200 , 100,   200 ]  )  ;
+}
+  alert ("Time's up! Check your heart rate now." );
+ el("afterminute").focus( ) ;
+}
 }
 
-function findSession(ii) {
-  let gb = loadSessions();
-  for (let nz = 0; nz < gb.length; nz = nz + 1) {
-    if (gb[nz].id == ii) {
-      return gb[nz];
-    }
-  }
+     function sessionFromOld  ( uf  , yf) {
+let hl	= Number(uf.peak) ;
+  let mg   = Number(uf.  oneMin);
+	if  (isNaN(  mg))   {
+mg =   Number(uf .onemin);
+     }
+if (!(hl  > 0  )	|| !(mg   >   0) ||  mg  >= hl)   {
   return null;
+     }
+
+let	qo   = Number(uf.effort) ;
+     if (isNaN (qo ))	{
+qo   =  Number(uf. exertion);
+     }
+        if  (isNaN  (qo)  )   {
+qo = 5;
+  }
+
+	let   az  = [];
+if   (Array.isArray (uf.sore)) {
+az  =   uf  . sore;
+	} else	if  (uf.soreness) {
+  for (let nz  =  0  ; nz <  tz.  length; nz  =   nz  +  1)   {
+if (uf.soreness[  tz [nz  ]])	{
+  az.push(tz[nz]  );
+
+
+ }
+	}
+ }
+
+        let  ss	=	uf.  sport;
+ if (!ss) {
+	ss  = "Other" ;
+}
+        let md =   Number( uf. duration);
+
+
+        if  (!md)  {
+  md =	0;
+ }
+
+  let qw  =   {};
+	qw .id  =  Date.now(  ) +  yf;
+     qw.date  =	toDateText(  String(uf.date))  ;
+qw.  sport = ss;
+qw  .  duration =  md ;
+ qw .effort  = qo;
+  qw  . peak  =	hl  ;
+	qw.oneMin  =   mg;
+     qw.drop  =  hl -   mg  ;
+	qw.sore	= az;
+     return qw;
 }
 
-function editSession(ii) {
-  let nv = findSession(ii);
 
-  el("durationInput").value = nv.duration;
-  el("effortInput").value = nv.effort;
-  updateEffortText();
-  el("peakInput").value = nv.peak;
-  el("oneMinInput").value = nv.oneMin;
-  markSore(nv.sore);
+el(  "graph").  addEventListener ("click"  , showTrendPoint)  ;
+el("graph").addEventListener( "mousemove", showTrendPoint) ;
 
-  uo = nv.sport;
-  el("sportLabel").textContent = nv.sport;
+	window.addEventListener("resize",   function ()	{
 
-  ws = ii;
-  el("saveButton").textContent = "Update session";
-  el("resultBox").className = "";
-  el("resultBox").textContent = "";
-  showScreen("newScreen");
-}
 
-function deleteSession(ii) {
-  if (!confirm("Delete this session?")) {
-    return;
-  }
-  let gb = loadSessions();
-  let ad = [];
-  for (let nz = 0; nz < gb.length; nz = nz + 1) {
-    if (gb[nz].id != ii) {
-      ad.push(gb[nz]);
-    }
-  }
-  saveAllSessions(ad);
-  showHistory();
-}
+	if   (!el("graphbox") .classList. contains  ("hidden")) {
+drawTrend( loadSessions())  ;
+ }
+  }  );
 
-function shareSession(ii) {
-  let nv = findSession(ii);
-  let qi = getCurrentUser();
-  let qg = "none";
-  if (nv.sore.length > 0) {
-    qg = nv.sore.join(", ");
+
+ function	showSportScreen()	{
+        let qi =	getCurrentUser(  );
+	el("hello").textContent = "Hey "  +  qi.name + "! What are you playing today?";
+        showScreen(  "sportspage"  ) ;
   }
 
-  let rg = "Recovery Report - " + qi.name + "\n";
-  rg = rg + "Date: " + nv.date + "\n";
-  rg = rg + "Sport: " + nv.sport + "\n";
-  rg = rg + "Duration: " + nv.duration + " min, Effort: " + nv.effort + "/10\n";
-  rg = rg + "Peak HR: " + nv.peak + ", 1-min HR: " + nv.oneMin + "\n";
-  rg = rg + "Recovery: " + nv.drop + " bpm drop (" + getRating(nv.drop) + ")\n";
-  rg = rg + "Sore: " + qg;
+ if   (!vy) {
 
-  if (navigator.share) {
-    navigator.share({ title: "Recovery Report", text: rg }).catch(function () {});
-    return;
-  }
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(rg)
-      .then(function () {
-        alert("Report copied! You can paste it anywhere.");
-      })
-      .catch(function () {
-        showCopyBox(rg);
-      });
-    return;
-  }
-  showCopyBox(rg);
-}
 
-function showCopyBox(bj) {
-  el("copyBox").value = bj;
-  el("copyArea").classList.remove("hidden");
-  el("copyArea").scrollIntoView({ behavior: "smooth" });
-}
-
-function exportCSV() {
-  let bj = makeCSV(loadSessions());
-
-  let to = "recovery-sessions-" + getCurrentUser().name + ".csv";
-  let kh = new File([bj], to, { type: "text/csv" });
-
-  if (navigator.canShare && navigator.canShare({ files: [kh] })) {
-    navigator.share({ files: [kh], title: "Recovery sessions" }).catch(function () {});
-  } else {
-    let kx = document.createElement("a");
-    kx.href = URL.createObjectURL(kh);
-    kx.download = to;
-    kx.click();
-  }
-}
-
-function importCSV(aj) {
-  let kh = aj.files[0];
-  if (!kh) {
-    return;
-  }
-
-  let dj = new FileReader();
-  dj.onload = function () {
-    let bj = dj.result.trim();
-    let va = bj.split("\n");
-    if (va.length < 2) {
-      alert("That file has no sessions in it.");
-      return;
-    }
-
-    let xg = cleanRow(va[0]);
-    for (let nz = 0; nz < xg.length; nz = nz + 1) {
-      xg[nz] = xg[nz].toLowerCase();
-    }
-
-    let dq = findColumn(xg, ["date"]);
-    let tp = findColumn(xg, ["sport"]);
-    let fn = findColumn(xg, ["duration", "minutes"]);
-    let jd = findColumn(xg, ["effort"]);
-    let zs = findColumn(xg, ["peak"]);
-    let an = findColumn(xg, ["onemin", "1-min"]);
-    let rz = findColumn(xg, ["sore"]);
-
-    if (zs == -1 || an == -1) {
-      alert("This CSV doesn't have peak and 1-minute heart rate columns.");
-      return;
-    }
-
-    let wq = [];
-    for (let nz = 1; nz < va.length; nz = nz + 1) {
-      let uv = cleanRow(va[nz]);
-      let ee = [];
-      if (rz != -1 && uv[rz]) {
-        let np = uv[rz].split(";");
-        for (let wg = 0; wg < np.length; wg = wg + 1) {
-          let pf = np[wg].trim();
-          if (pf != "") {
-            ee.push(pf);
-          }
+ el(  "savewarning"  ) .classList  .remove(  "hidden");
         }
-      }
 
-      let gz;
-      if (dq == -1) {
-        gz = todayText();
-      } else {
-        gz = uv[dq];
-      }
-      let ss = "Other";
-      if (tp != -1) {
-        ss = uv[tp];
-      }
-      let md = 0;
-      if (fn != -1) {
-        md = uv[fn];
-      }
-      let qo = 5;
-      if (jd != -1) {
-        qo = uv[jd];
-      }
+ showInstallTip();
+     moveOldData  ( );
+        importOldBrowserData()  ;
 
-      let uf = {};
-      uf.date = gz;
-      uf.sport = ss;
-      uf.duration = md;
-      uf.effort = qo;
-      uf.peak = uv[zs];
-      uf.oneMin = uv[an];
-      uf.sore = ee;
-      let nv = sessionFromOld(uf, nz);
-      if (nv != null) {
-        wq.push(nv);
-      }
-    }
+     if	(loadUsers()  .length ==   0)  {
+     showAddUserScreen();
+	} else	if   (getCurrentUser  () ==   null )   {
+showUserScreen(  ) ;
+}  else   {
+  showSportScreen(  );
+	}
 
-    let bw = addSessions(wq);
-    alert("Added " + bw + " sessions. (" + (wq.length - bw) + " were already in your history.)");
-    aj.value = "";
-    showHistory();
-  };
-  dj.readAsText(kh);
-}
-
-function cleanRow(yh) {
-  let bj = yh.trim();
-  let uv = bj.split(",");
-  for (let nz = 0; nz < uv.length; nz = nz + 1) {
-    let pf = uv[nz].trim();
-    let ca = "";
-    for (let wg = 0; wg < pf.length; wg = wg + 1) {
-      if (pf[wg] != '"') {
-        ca = ca + pf[wg];
-      }
-    }
-    uv[nz] = ca;
-  }
-  return uv;
-}
-
-function findColumn(xg, jj) {
-  for (let nz = 0; nz < xg.length; nz = nz + 1) {
-    for (let wg = 0; wg < jj.length; wg = wg + 1) {
-      if (xg[nz].includes(jj[wg])) {
-        return nz;
-      }
-    }
-  }
-  return -1;
-}
-
-let gl = [];
-
-function drawTrend(gb) {
-
-  let gg = gb.slice(-20);
-
-  let ci = el("trendChart");
-  let mn = ci.getContext("2d");
-
-  let xl = ci.clientWidth;
-  let lz = ci.clientHeight;
-  let ts = window.devicePixelRatio;
-  if (!ts) {
-    ts = 1;
-  }
-  ci.width = xl * ts;
-  ci.height = lz * ts;
-  mn.scale(ts, ts);
-  mn.clearRect(0, 0, xl, lz);
-
-  let ie = 34;
-  let xv = xl - 30;
-  let ky = 12;
-  let cr = lz - 28;
-
-  let pr = 40;
-  for (let nz = 0; nz < gg.length; nz = nz + 1) {
-    if (gg[nz].drop + 5 > pr) {
-      pr = gg[nz].drop + 5;
-    }
-  }
-  pr = Math.ceil(pr / 10) * 10;
-
-  function xFor(nz) {
-    return ie + nz * (xv - ie) / (gg.length - 1);
-  }
-  function yFor(zi) {
-    return cr - (Math.max(0, zi) / pr) * (cr - ky);
-  }
-
-  mn.font = "12px Arial";
-  mn.lineWidth = 1;
-
-  for (let zb = 0; zb <= pr; zb = zb + 10) {
-    mn.strokeStyle = "#34508A";
-    mn.beginPath();
-    mn.moveTo(ie, yFor(zb));
-    mn.lineTo(xv, yFor(zb));
-    mn.stroke();
-
-    mn.fillStyle = "#A9BFF8";
-    mn.textAlign = "right";
-    mn.fillText(zb, ie - 6, yFor(zb) + 4);
-  }
-
-  mn.strokeStyle = "#FF9A80";
-  mn.setLineDash([5, 5]);
-  mn.beginPath();
-  mn.moveTo(ie, yFor(13));
-  mn.lineTo(xv, yFor(13));
-  mn.stroke();
-  mn.setLineDash([]);
-  mn.fillStyle = "#FFB8A6";
-  mn.textAlign = "left";
-  mn.fillText("slow", ie + 4, yFor(13) - 5);
-
-  mn.strokeStyle = "#7FE0C8";
-  mn.lineWidth = 2;
-  mn.beginPath();
-  for (let nz = 0; nz < gg.length; nz = nz + 1) {
-    if (nz == 0) {
-      mn.moveTo(xFor(nz), yFor(gg[nz].drop));
-    } else {
-      mn.lineTo(xFor(nz), yFor(gg[nz].drop));
-    }
-  }
-  mn.stroke();
-
-  gl = [];
-  for (let nz = 0; nz < gg.length; nz = nz + 1) {
-    let kk = xFor(nz);
-    let nl = yFor(gg[nz].drop);
-    mn.fillStyle = "#7FE0C8";
-    mn.strokeStyle = "#213B8A";
-    mn.lineWidth = 2;
-    mn.beginPath();
-    mn.arc(kk, nl, 5, 0, 2 * Math.PI);
-    mn.fill();
-    mn.stroke();
-    gl.push({ x: kk, y: nl, session: gg[nz] });
-  }
-
-  let sl = gg[gg.length - 1];
-  mn.fillStyle = "#E2E9FF";
-  mn.font = "bold 13px Arial";
-  mn.textAlign = "left";
-  mn.fillText(sl.drop, xFor(gg.length - 1) + 8, yFor(sl.drop) + 4);
-
-  mn.font = "12px Arial";
-  mn.fillStyle = "#A9BFF8";
-  mn.textAlign = "left";
-  mn.fillText(shortDate(gg[0].date), ie, lz - 8);
-  mn.textAlign = "right";
-  mn.fillText(shortDate(sl.date), xv, lz - 8);
-
-  el("trendSummary").textContent = trendSummary(gg);
-  el("trendInfo").textContent = "Tap a dot to see that session.";
-}
-
-function shortDate(gz) {
-  let oc = gz.split("-");
-  if (oc.length < 3) {
-    return gz;
-  }
-  return oc[1] + "/" + oc[2];
-}
-
-function trendSummary(gg) {
-  if (gg.length < 4) {
-    return "Log a few more sessions to see your trend.";
-  }
-
-  let gc = gg.slice(-3);
-  let na = gg.slice(0, gg.length - 3);
-  let ni = getAverageDrop(gc);
-  let yp = getAverageDrop(na);
-
-  if (ni >= yp + 3) {
-    return "📈 Getting better: last 3 sessions average " + ni + " bpm (was " + yp + ").";
-  } else if (ni <= yp - 3) {
-    return "📉 Getting slower: last 3 sessions average " + ni + " bpm (was " + yp + "). Maybe add a rest day.";
-  } else {
-    return "➡️ Steady: last 3 sessions average " + ni + " bpm.";
-  }
-}
-
-function showTrendPoint(ri) {
-  if (gl.length == 0) {
-    return;
-  }
-  let zc = el("trendChart").getBoundingClientRect();
-  let od = ri.clientX - zc.left;
-
-  let rl = gl[0];
-  for (let nz = 1; nz < gl.length; nz = nz + 1) {
-    if (Math.abs(gl[nz].x - od) < Math.abs(rl.x - od)) {
-      rl = gl[nz];
-    }
-  }
-
-  let nv = rl.session;
-  el("trendInfo").textContent =
-    shortDate(nv.date) + " · " + nv.sport + " · dropped " + nv.drop + " bpm (" + getRating(nv.drop) + ")";
-}
-
-el("trendChart").addEventListener("click", showTrendPoint);
-el("trendChart").addEventListener("mousemove", showTrendPoint);
-
-window.addEventListener("resize", function () {
-  if (!el("trendCard").classList.contains("hidden")) {
-    drawTrend(loadSessions());
-  }
-});
-
-function showInstallTip() {
-  let vx = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone == true;
-  if (vx) {
-    return;
-  }
-
-  let pq = navigator.userAgent;
-  let mo = pq.includes("iPhone") || pq.includes("iPad");
-  let ax = pq.includes("Android");
-  let bj = "";
-
-  if (mo) {
-    bj = "In Safari, tap the Share button, then \"Add to Home Screen\".";
-  } else if (ax) {
-    bj = "In Chrome, tap the ⋮ menu, then \"Add to Home screen\".";
-  } else {
-    return;
-  }
-
-  el("installText").textContent = " " + bj;
-  el("installTip").classList.remove("hidden");
-}
-
-if (!vy) {
-  el("storageWarning").classList.remove("hidden");
-}
-
-showInstallTip();
-moveOldData();
-importOldBrowserData();
-
-if (loadUsers().length == 0) {
-  showAddUserScreen();
-} else if (getCurrentUser() == null) {
-  showUserScreen();
-} else {
-  showSportScreen();
-}
 </script>
 
 </body>
