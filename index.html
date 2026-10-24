@@ -17,7 +17,6 @@
   <link rel="icon" href="icon.png">
 
   <style>
-   
     body {
       margin: 0;
       font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -27,7 +26,6 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-   
     .page {
       max-width: 500px;
       margin: 0 auto;
@@ -36,13 +34,38 @@
       padding-bottom: calc(90px + env(safe-area-inset-bottom));
     }
 
-    h1 { margin: 0 0 4px; font-size: 26px; }
-    h2 { font-size: 18px; margin-top: 0; }
-    .subtitle { color: #A9BFF8; margin-top: 0; }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 26px;
+    }
 
-    .app-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .app-header .subtitle { margin-bottom: 0; }
-    .logo { width: 64px; height: 64px; border-radius: 16px; flex-shrink: 0; }
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .subtitle {
+      color: #A9BFF8;
+      margin-top: 0;
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .app-header .subtitle {
+      margin-bottom: 0;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
 
     .card {
       background-color: #213B8A;
@@ -58,7 +81,6 @@
       font-size: 14px;
     }
 
-    
     input[type="number"], input[type="text"] {
       width: 100%;
       box-sizing: border-box;
@@ -69,9 +91,10 @@
       margin-bottom: 14px;
     }
 
-    input[type="range"] { width: 100%; }
+    input[type="range"] {
+      width: 100%;
+    }
 
-    
     button {
       min-height: 44px;
       background-color: #3D5FE0;
@@ -83,13 +106,27 @@
       font-weight: bold;
       cursor: pointer;
     }
-    button:active { opacity: 0.7; }
 
-    .big-button { width: 100%; }
-    .small-button { min-height: 36px; padding: 6px 12px; font-size: 14px; margin-right: 6px; margin-top: 6px; }
-    .delete-button { background-color: #B5452E; }
+    button:active {
+      opacity: 0.7;
+    }
 
-  
+    .big-button {
+      width: 100%;
+    }
+
+    .small-button {
+      min-height: 36px;
+      padding: 6px 12px;
+      font-size: 14px;
+      margin-right: 6px;
+      margin-top: 6px;
+    }
+
+    .delete-button {
+      background-color: #B5452E;
+    }
+
     .user-bar {
       display: flex;
       justify-content: space-between;
@@ -99,15 +136,33 @@
       padding: 6px 6px 6px 12px;
       margin-bottom: 14px;
     }
-    .user-bar.hidden { display: none; }
-    .user-bar .small-button { margin: 0 0 0 4px; padding: 6px 10px; }
 
-  
-    .user-row { display: flex; gap: 8px; margin-bottom: 10px; }
-    .user-row .pick-user { flex: 1; text-align: left; background-color: #2E50B3; }
-    .user-row .pick-user small { font-weight: normal; color: #C9D6FF; }
+    .user-bar.hidden {
+      display: none;
+    }
 
-  
+    .user-bar .small-button {
+      margin: 0 0 0 4px;
+      padding: 6px 10px;
+    }
+
+    .user-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .user-row .pick-user {
+      flex: 1;
+      text-align: left;
+      background-color: #2E50B3;
+    }
+
+    .user-row .pick-user small {
+      font-weight: normal;
+      color: #C9D6FF;
+    }
+
     .back-button {
       background-color: #1D3350;
       border: 1px solid #34508A;
@@ -128,17 +183,47 @@
       margin: 0;
       font-size: 16px;
     }
-    .sore-grid input { width: 20px; height: 20px; vertical-align: middle; margin-right: 6px; }
 
-    .timer-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-    .timer-number { font-size: 36px; font-weight: bold; min-width: 56px; }
+    .sore-grid input {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
 
-    .result { padding: 16px; border-radius: 14px; margin-top: 16px; line-height: 1.5; }
-    .result-good { background-color: #1B7A6C; }
-    .result-bad  { background-color: #7A2E1B; }
+    .timer-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
 
-    .history-item { border-bottom: 1px solid #34508A; padding: 12px 0; line-height: 1.5; }
+    .timer-number {
+      font-size: 36px;
+      font-weight: bold;
+      min-width: 56px;
+    }
 
+    .result {
+      padding: 16px;
+      border-radius: 14px;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .result-good {
+      background-color: #1B7A6C;
+    }
+
+    .result-bad {
+      background-color: #7A2E1B;
+    }
+
+    .history-item {
+      border-bottom: 1px solid #34508A;
+      padding: 12px 0;
+      line-height: 1.5;
+    }
 
     #trendChart {
       width: 100%;
@@ -146,13 +231,29 @@
       display: block;
       cursor: pointer;
     }
-    #trendSummary { margin-top: 0; font-weight: bold; }
-    #trendInfo { min-height: 18px; }
-    .history-item:last-child { border-bottom: none; }
 
-    .hidden { display: none; }
-    .small-note { font-size: 13px; color: #A9BFF8; line-height: 1.4; }
+    #trendSummary {
+      margin-top: 0;
+      font-weight: bold;
+    }
 
+    #trendInfo {
+      min-height: 18px;
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: #A9BFF8;
+      line-height: 1.4;
+    }
 
     .tab-bar {
       position: fixed;
@@ -164,7 +265,11 @@
       border-top: 1px solid #34508A;
       padding-bottom: env(safe-area-inset-bottom);
     }
-    .tab-bar.hidden { display: none; }   
+
+    .tab-bar.hidden {
+      display: none;
+    }
+
     .tab-bar button {
       flex: 1;
       background: none;
@@ -173,16 +278,25 @@
       font-size: 13px;
       padding: 8px 0 10px;
     }
-    .tab-bar button .tab-icon { display: block; font-size: 22px; }
-    .tab-bar button.active { color: #7FE0C8; }
 
-  
-    .install-tip { border: 1px dashed #7FE0C8; }
+    .tab-bar button .tab-icon {
+      display: block;
+      font-size: 22px;
+    }
 
-  
-    .warning-box { border: 2px solid #FF9A80; line-height: 1.45; }
+    .tab-bar button.active {
+      color: #7FE0C8;
+    }
 
-   
+    .install-tip {
+      border: 1px dashed #7FE0C8;
+    }
+
+    .warning-box {
+      border: 2px solid #FF9A80;
+      line-height: 1.45;
+    }
+
     #copyBox {
       width: 100%;
       box-sizing: border-box;
@@ -193,11 +307,18 @@
       margin-top: 10px;
     }
 
-
     @media (min-width: 800px) {
-      .page { max-width: 900px; }
-      .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-      .sport-grid, .sore-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+      .page {
+        max-width: 900px;
+      }
+      .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .sport-grid, .sore-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -379,6 +500,16 @@
 
 
 <script>
+function compareSessions(qb, hc) {
+  if (qb.date < hc.date) {
+    return -1;
+  }
+  if (qb.date > hc.date) {
+    return 1;
+  }
+  return qb.id - hc.id;
+}
+
 let tz = ["Legs", "Arms", "Core", "Shoulders"];
 
 function el(ii) {
@@ -391,7 +522,7 @@ function readNumber(ii) {
 
 function readSore() {
   let fl = [];
-  for (let nz = 0; nz < tz.length; nz++) {
+  for (let nz = 0; nz < tz.length; nz = nz + 1) {
     if (el("sore" + tz[nz]).checked) {
       fl.push(tz[nz]);
     }
@@ -400,8 +531,14 @@ function readSore() {
 }
 
 function markSore(fl) {
-  for (let nz = 0; nz < tz.length; nz++) {
-    el("sore" + tz[nz]).checked = fl.includes(tz[nz]);
+  for (let nz = 0; nz < tz.length; nz = nz + 1) {
+    let dx = false;
+    for (let wg = 0; wg < fl.length; wg = wg + 1) {
+      if (fl[wg] === tz[nz]) {
+        dx = true;
+      }
+    }
+    el("sore" + tz[nz]).checked = dx;
   }
 }
 
@@ -474,7 +611,7 @@ function saveUsers(lr) {
 function getCurrentUser() {
   let uw = storageGet("currentUser");
   let lr = loadUsers();
-  for (let nz = 0; nz < lr.length; nz++) {
+  for (let nz = 0; nz < lr.length; nz = nz + 1) {
     if (String(lr[nz].id) == uw) {
       return lr[nz];
     }
@@ -496,7 +633,14 @@ function moveOldData() {
     return;
   }
   let tx = JSON.parse(lt);
-  let qi = { id: Date.now(), name: tx.name || "Me", age: tx.age };
+  let cv = tx.name;
+  if (!cv) {
+    cv = "Me";
+  }
+  let qi = {};
+  qi.id = Date.now();
+  qi.name = cv;
+  qi.age = tx.age;
   saveUsers([qi]);
   setCurrentUser(qi.id);
 
@@ -516,7 +660,7 @@ function importOldBrowserData() {
   let ao = ["sessions", "recover_sessions"];
   let bw = 0;
 
-  for (let tf = 0; tf < ao.length; tf++) {
+  for (let tf = 0; tf < ao.length; tf = tf + 1) {
     let bj = storageGet(ao[tf]);
     if (bj == null) {
       continue;
@@ -530,13 +674,13 @@ function importOldBrowserData() {
     }
 
     let wq = [];
-    for (let nz = 0; nz < gf.length; nz++) {
+    for (let nz = 0; nz < gf.length; nz = nz + 1) {
       let nv = sessionFromOld(gf[nz], nz);
       if (nv != null) {
         wq.push(nv);
       }
     }
-    bw += addSessions(wq);
+    bw = bw + addSessions(wq);
 
     storageSet("backup-" + ao[tf], bj);
     storageRemove(ao[tf]);
@@ -569,24 +713,41 @@ function sessionFromOld(uf, yf) {
   if (Array.isArray(uf.sore)) {
     az = uf.sore;
   } else if (uf.soreness) {
-    for (let nz = 0; nz < tz.length; nz++) {
+    for (let nz = 0; nz < tz.length; nz = nz + 1) {
       if (uf.soreness[tz[nz]]) {
         az.push(tz[nz]);
       }
     }
   }
 
-  return {
-    id: Date.now() + yf,
-    date: toDateText(String(uf.date)),
-    sport: uf.sport || "Other",
-    duration: Number(uf.duration) || 0,
-    effort: qo,
-    peak: hl,
-    oneMin: mg,
-    drop: hl - mg,
-    sore: az
-  };
+  let ss = uf.sport;
+  if (!ss) {
+    ss = "Other";
+  }
+  let md = Number(uf.duration);
+  if (!md) {
+    md = 0;
+  }
+
+  let qw = {};
+  qw.id = Date.now() + yf;
+  qw.date = toDateText(String(uf.date));
+  qw.sport = ss;
+  qw.duration = md;
+  qw.effort = qo;
+  qw.peak = hl;
+  qw.oneMin = mg;
+  qw.drop = hl - mg;
+  qw.sore = az;
+  return qw;
+}
+
+function twoDigits(zb) {
+  let bj = String(zb);
+  if (bj.length < 2) {
+    bj = "0" + bj;
+  }
+  return bj;
 }
 
 function toDateText(bj) {
@@ -596,8 +757,8 @@ function toDateText(bj) {
   if (bj.includes("/")) {
     let oc = bj.split("/");
     if (oc.length == 3) {
-      let ui = oc[0].padStart(2, "0");
-      let wn = oc[1].padStart(2, "0");
+      let ui = twoDigits(oc[0]);
+      let wn = twoDigits(oc[1]);
       return oc[2] + "-" + ui + "-" + wn;
     }
   }
@@ -608,25 +769,21 @@ function addSessions(wq) {
   let gb = loadSessions();
   let bw = 0;
 
-  for (let nz = 0; nz < wq.length; nz++) {
+  for (let nz = 0; nz < wq.length; nz = nz + 1) {
     let nv = wq[nz];
     let qt = false;
-    for (let wg = 0; wg < gb.length; wg++) {
+    for (let wg = 0; wg < gb.length; wg = wg + 1) {
       if (gb[wg].date == nv.date && gb[wg].peak == nv.peak && gb[wg].oneMin == nv.oneMin) {
         qt = true;
       }
     }
     if (!qt) {
       gb.push(nv);
-      bw += 1;
+      bw = bw + 1;
     }
   }
 
-  gb.sort(function (qb, hc) {
-    if (qb.date < hc.date) return -1;
-    if (qb.date > hc.date) return 1;
-    return qb.id - hc.id;
-  });
+  gb.sort(compareSessions);
 
   saveAllSessions(gb);
   return bw;
@@ -634,7 +791,7 @@ function addSessions(wq) {
 
 function makeCSV(gb) {
   let bj = wd + "\n";
-  for (let nz = 0; nz < gb.length; nz++) {
+  for (let nz = 0; nz < gb.length; nz = nz + 1) {
     let nv = gb[nz];
     let hq = [nv.id, nv.date, nv.sport, nv.duration, nv.effort, nv.peak, nv.oneMin,
                nv.drop, getRating(nv.drop), nv.sore.join(";")];
@@ -645,24 +802,31 @@ function makeCSV(gb) {
 
 function readCSV(bj) {
   let gb = [];
-  let va = bj.trim().split("\n");
+  let ru = bj.trim();
+  let va = ru.split("\n");
 
-  for (let nz = 1; nz < va.length; nz++) {
+  for (let nz = 1; nz < va.length; nz = nz + 1) {
     let oc = va[nz].split(",");
     if (oc.length < 10) {
       continue;
     }
-    gb.push({
-      id: Number(oc[0]),
-      date: oc[1],
-      sport: oc[2],
-      duration: Number(oc[3]),
-      effort: Number(oc[4]),
-      peak: Number(oc[5]),
-      oneMin: Number(oc[6]),
-      drop: Number(oc[7]),
-      sore: oc[9] == "" ? [] : oc[9].split(";")
-    });
+
+    let az = [];
+    if (oc[9] != "") {
+      az = oc[9].split(";");
+    }
+
+    let qw = {};
+    qw.id = Number(oc[0]);
+    qw.date = oc[1];
+    qw.sport = oc[2];
+    qw.duration = Number(oc[3]);
+    qw.effort = Number(oc[4]);
+    qw.peak = Number(oc[5]);
+    qw.oneMin = Number(oc[6]);
+    qw.drop = Number(oc[7]);
+    qw.sore = az;
+    gb.push(qw);
   }
   return gb;
 }
@@ -681,32 +845,47 @@ function saveAllSessions(gb) {
 
 function todayText() {
   let ix = new Date();
-  let ui = String(ix.getMonth() + 1).padStart(2, "0");
-  let wn = String(ix.getDate()).padStart(2, "0");
+  let ui = twoDigits(ix.getMonth() + 1);
+  let wn = twoDigits(ix.getDate());
   return ix.getFullYear() + "-" + ui + "-" + wn;
 }
 
 function showScreen(hx) {
   let yo = ["userScreen", "profileScreen", "sportScreen", "newScreen", "historyScreen"];
-  for (let nz = 0; nz < yo.length; nz++) {
+  for (let nz = 0; nz < yo.length; nz = nz + 1) {
     el(yo[nz]).classList.add("hidden");
   }
   el(hx).classList.remove("hidden");
 
   let qi = getCurrentUser();
-  let rw = (qi != null && hx != "userScreen" && hx != "profileScreen");
-  el("userBar").classList.toggle("hidden", !rw);
+  let rw = false;
+  if (qi != null && hx != "userScreen" && hx != "profileScreen") {
+    rw = true;
+  }
+  if (rw) {
+    el("userBar").classList.remove("hidden");
+  } else {
+    el("userBar").classList.add("hidden");
+  }
   if (qi != null) {
     el("userNameText").textContent = qi.name;
   }
 
-  let sx = (hx == "newScreen" || hx == "historyScreen");
-  el("tabBar").classList.toggle("hidden", !sx);
-  el("newTabButton").classList.toggle("active", hx == "newScreen");
-  el("historyTabButton").classList.toggle("active", hx == "historyScreen");
-
+  if (hx == "newScreen" || hx == "historyScreen") {
+    el("tabBar").classList.remove("hidden");
+  } else {
+    el("tabBar").classList.add("hidden");
+  }
+  if (hx == "newScreen") {
+    el("newTabButton").classList.add("active");
+  } else {
+    el("newTabButton").classList.remove("active");
+  }
   if (hx == "historyScreen") {
+    el("historyTabButton").classList.add("active");
     showHistory();
+  } else {
+    el("historyTabButton").classList.remove("active");
   }
   window.scrollTo(0, 0);
 }
@@ -716,7 +895,7 @@ function showUserScreen() {
   let lb = el("userList");
   lb.innerHTML = "";
 
-  for (let nz = 0; nz < lr.length; nz++) {
+  for (let nz = 0; nz < lr.length; nz = nz + 1) {
     let xb = lr[nz];
     let hq = document.createElement("div");
     hq.className = "user-row";
@@ -727,12 +906,16 @@ function showUserScreen() {
     let wf = document.createElement("small");
     wf.textContent = "age " + xb.age;
     ig.appendChild(wf);
-    ig.onclick = function () { switchToUser(xb.id); };
+    ig.onclick = function () {
+      switchToUser(xb.id);
+    };
 
     let nb = document.createElement("button");
     nb.className = "delete-button";
     nb.textContent = "Delete";
-    nb.onclick = function () { deleteUser(xb.id); };
+    nb.onclick = function () {
+      deleteUser(xb.id);
+    };
 
     hq.appendChild(ig);
     hq.appendChild(nb);
@@ -745,8 +928,12 @@ function showUserScreen() {
 function showAddUserScreen() {
   el("nameInput").value = "";
   el("ageInput").value = "";
-
-  el("cancelAddButton").classList.toggle("hidden", loadUsers().length == 0);
+  let lr = loadUsers();
+  if (lr.length == 0) {
+    el("cancelAddButton").classList.add("hidden");
+  } else {
+    el("cancelAddButton").classList.remove("hidden");
+  }
   showScreen("profileScreen");
 }
 
@@ -764,14 +951,17 @@ function addUser() {
   }
 
   let lr = loadUsers();
-  for (let nz = 0; nz < lr.length; nz++) {
+  for (let nz = 0; nz < lr.length; nz = nz + 1) {
     if (lr[nz].name.toLowerCase() == cv.toLowerCase()) {
       alert("There is already a user called " + lr[nz].name + ".");
       return;
     }
   }
 
-  let qi = { id: Date.now(), name: cv, age: ek };
+  let qi = {};
+  qi.id = Date.now();
+  qi.name = cv;
+  qi.age = ek;
   lr.push(qi);
   saveUsers(lr);
   switchToUser(qi.id);
@@ -793,7 +983,7 @@ function switchToUser(ii) {
 function deleteUser(ii) {
   let lr = loadUsers();
   let qi = null;
-  for (let nz = 0; nz < lr.length; nz++) {
+  for (let nz = 0; nz < lr.length; nz = nz + 1) {
     if (lr[nz].id == ii) {
       qi = lr[nz];
     }
@@ -805,7 +995,7 @@ function deleteUser(ii) {
 
   storageRemove("workouts-" + ii + ".csv");
   let ad = [];
-  for (let nz = 0; nz < lr.length; nz++) {
+  for (let nz = 0; nz < lr.length; nz = nz + 1) {
     if (lr[nz].id != ii) {
       ad.push(lr[nz]);
     }
@@ -843,25 +1033,25 @@ function startTimer() {
   if (vb != null) {
     return;
   }
-
   ki = 60;
   el("timerButton").textContent = "Running...";
+  vb = setInterval(timerTick, 1000);
+}
 
-  vb = setInterval(function () {
-    ki -= 1;
-    el("timerText").textContent = ki;
+function timerTick() {
+  ki = ki - 1;
+  el("timerText").textContent = ki;
 
-    if (ki <= 0) {
-      clearInterval(vb);
-      vb = null;
-      el("timerButton").textContent = "Start again";
-      if (navigator.vibrate) {
-        navigator.vibrate([200, 100, 200]);
-      }
-      alert("Time's up! Check your heart rate now.");
-      el("oneMinInput").focus();
+  if (ki <= 0) {
+    clearInterval(vb);
+    vb = null;
+    el("timerButton").textContent = "Start again";
+    if (navigator.vibrate) {
+      navigator.vibrate([200, 100, 200]);
     }
-  }, 1000);
+    alert("Time's up! Check your heart rate now.");
+    el("oneMinInput").focus();
+  }
 }
 
 function saveSession() {
@@ -882,23 +1072,22 @@ function saveSession() {
 
   let sb = readSore();
 
-  let qw = {
-    id: Date.now(),
-    date: todayText(),
-    sport: uo,
-    duration: md,
-    effort: qo,
-    peak: hl,
-    oneMin: mg,
-    drop: hl - mg,
-    sore: sb
-  };
+  let qw = {};
+  qw.id = Date.now();
+  qw.date = todayText();
+  qw.sport = uo;
+  qw.duration = md;
+  qw.effort = qo;
+  qw.peak = hl;
+  qw.oneMin = mg;
+  qw.drop = hl - mg;
+  qw.sore = sb;
 
   let gb = loadSessions();
   if (ws == null) {
     gb.push(qw);
   } else {
-    for (let nz = 0; nz < gb.length; nz++) {
+    for (let nz = 0; nz < gb.length; nz = nz + 1) {
       if (gb[nz].id == ws) {
         qw.id = ws;
         qw.date = gb[nz].date;
@@ -929,8 +1118,8 @@ function getAverageDrop(gb) {
     return 0;
   }
   let lo = 0;
-  for (let nz = 0; nz < gb.length; nz++) {
-    lo += gb[nz].drop;
+  for (let nz = 0; nz < gb.length; nz = nz + 1) {
+    lo = lo + gb[nz].drop;
   }
   return Math.round(lo / gb.length);
 }
@@ -951,14 +1140,14 @@ function showResult(qw, gb) {
   }
 
   if (qw.sore.length >= 3) {
-    dd += "You are sore in a lot of places. ";
+    dd = dd + "You are sore in a lot of places. ";
     qm = false;
   }
 
   if (qm) {
-    dd += "You look recovered. Normal training should be fine.";
+    dd = dd + "You look recovered. Normal training should be fine.";
   } else {
-    dd += "Take it easy next time: light activity or rest, plus good sleep and water.";
+    dd = dd + "Take it easy next time: light activity or rest, plus good sleep and water.";
   }
 
   showMessage(dd, qm);
@@ -967,13 +1156,17 @@ function showResult(qw, gb) {
 function showMessage(bj, qm) {
   let zc = el("resultBox");
   zc.textContent = bj;
-  zc.className = qm ? "result result-good" : "result result-bad";
+  if (qm) {
+    zc.className = "result result-good";
+  } else {
+    zc.className = "result result-bad";
+  }
   zc.scrollIntoView({ behavior: "smooth" });
 }
 
 function clearForm() {
   let bu = ["durationInput", "peakInput", "oneMinInput"];
-  for (let nz = 0; nz < bu.length; nz++) {
+  for (let nz = 0; nz < bu.length; nz = nz + 1) {
     el(bu[nz]).value = "";
   }
   el("effortInput").value = 5;
@@ -1002,31 +1195,36 @@ function showHistory() {
     return;
   }
 
-  el("averageText").textContent =
-    "Sessions: " + gb.length + "  |  Average drop: " + getAverageDrop(gb) + " bpm";
+  let iq = getAverageDrop(gb);
+  let bj = "Sessions: " + gb.length;
+  bj = bj + "  |  Average drop: " + iq + " bpm";
+  el("averageText").textContent = bj;
 
-  for (let nz = gb.length - 1; nz >= 0; nz--) {
+  for (let nz = gb.length - 1; nz >= 0; nz = nz - 1) {
     let nv = gb[nz];
-    let qg = nv.sore.length > 0 ? nv.sore.join(", ") : "none";
+    let qg = "none";
+    if (nv.sore.length > 0) {
+      qg = nv.sore.join(", ");
+    }
 
     let ef = document.createElement("div");
     ef.className = "history-item";
-    ef.innerHTML =
-      "<b>" + nv.sport + " - " + nv.date + "</b><br>" +
-      nv.duration + " min, effort " + nv.effort + "/10<br>" +
-      "Heart rate " + nv.peak + " → " + nv.oneMin + " (drop " + nv.drop + ", " + getRating(nv.drop) + ")<br>" +
-      "Sore: " + qg + "<br>" +
-      "<button class='small-button' onclick='editSession(" + nv.id + ")'>Edit</button>" +
-      "<button class='small-button' onclick='shareSession(" + nv.id + ")'>Share</button>" +
-      "<button class='small-button delete-button' onclick='deleteSession(" + nv.id + ")'>Delete</button>";
-
+    let ob = "<b>" + nv.sport + " - " + nv.date + "</b><br>";
+    ob = ob + nv.duration + " min, effort " + nv.effort + "/10<br>";
+    ob = ob + "Heart rate " + nv.peak + " → " + nv.oneMin;
+    ob = ob + " (drop " + nv.drop + ", " + getRating(nv.drop) + ")<br>";
+    ob = ob + "Sore: " + qg + "<br>";
+    ob = ob + "<button class='small-button' onclick='editSession(" + nv.id + ")'>Edit</button>";
+    ob = ob + "<button class='small-button' onclick='shareSession(" + nv.id + ")'>Share</button>";
+    ob = ob + "<button class='small-button delete-button' onclick='deleteSession(" + nv.id + ")'>Delete</button>";
+    ef.innerHTML = ob;
     lb.appendChild(ef);
   }
 }
 
 function findSession(ii) {
   let gb = loadSessions();
-  for (let nz = 0; nz < gb.length; nz++) {
+  for (let nz = 0; nz < gb.length; nz = nz + 1) {
     if (gb[nz].id == ii) {
       return gb[nz];
     }
@@ -1060,7 +1258,7 @@ function deleteSession(ii) {
   }
   let gb = loadSessions();
   let ad = [];
-  for (let nz = 0; nz < gb.length; nz++) {
+  for (let nz = 0; nz < gb.length; nz = nz + 1) {
     if (gb[nz].id != ii) {
       ad.push(gb[nz]);
     }
@@ -1072,21 +1270,23 @@ function deleteSession(ii) {
 function shareSession(ii) {
   let nv = findSession(ii);
   let qi = getCurrentUser();
+  let qg = "none";
+  if (nv.sore.length > 0) {
+    qg = nv.sore.join(", ");
+  }
 
-  let rg =
-    "Recovery Report - " + qi.name + "\n" +
-    "Date: " + nv.date + "\n" +
-    "Sport: " + nv.sport + "\n" +
-    "Duration: " + nv.duration + " min, Effort: " + nv.effort + "/10\n" +
-    "Peak HR: " + nv.peak + ", 1-min HR: " + nv.oneMin + "\n" +
-    "Recovery: " + nv.drop + " bpm drop (" + getRating(nv.drop) + ")\n" +
-    "Sore: " + (nv.sore.length > 0 ? nv.sore.join(", ") : "none");
+  let rg = "Recovery Report - " + qi.name + "\n";
+  rg = rg + "Date: " + nv.date + "\n";
+  rg = rg + "Sport: " + nv.sport + "\n";
+  rg = rg + "Duration: " + nv.duration + " min, Effort: " + nv.effort + "/10\n";
+  rg = rg + "Peak HR: " + nv.peak + ", 1-min HR: " + nv.oneMin + "\n";
+  rg = rg + "Recovery: " + nv.drop + " bpm drop (" + getRating(nv.drop) + ")\n";
+  rg = rg + "Sore: " + qg;
 
   if (navigator.share) {
     navigator.share({ title: "Recovery Report", text: rg }).catch(function () {});
     return;
   }
-
   if (navigator.clipboard) {
     navigator.clipboard.writeText(rg)
       .then(function () {
@@ -1097,7 +1297,6 @@ function shareSession(ii) {
       });
     return;
   }
-
   showCopyBox(rg);
 }
 
@@ -1131,14 +1330,15 @@ function importCSV(aj) {
 
   let dj = new FileReader();
   dj.onload = function () {
-    let va = dj.result.trim().split("\n");
+    let bj = dj.result.trim();
+    let va = bj.split("\n");
     if (va.length < 2) {
       alert("That file has no sessions in it.");
       return;
     }
 
     let xg = cleanRow(va[0]);
-    for (let nz = 0; nz < xg.length; nz++) {
+    for (let nz = 0; nz < xg.length; nz = nz + 1) {
       xg[nz] = xg[nz].toLowerCase();
     }
 
@@ -1156,28 +1356,47 @@ function importCSV(aj) {
     }
 
     let wq = [];
-    for (let nz = 1; nz < va.length; nz++) {
-      let mh = cleanRow(va[nz]);
+    for (let nz = 1; nz < va.length; nz = nz + 1) {
+      let uv = cleanRow(va[nz]);
       let ee = [];
-      if (rz != -1 && mh[rz]) {
-        let np = mh[rz].split(";");
-        for (let wg = 0; wg < np.length; wg++) {
-          if (np[wg].trim() != "") {
-            ee.push(np[wg].trim());
+      if (rz != -1 && uv[rz]) {
+        let np = uv[rz].split(";");
+        for (let wg = 0; wg < np.length; wg = wg + 1) {
+          let pf = np[wg].trim();
+          if (pf != "") {
+            ee.push(pf);
           }
         }
       }
 
-      let nv = sessionFromOld({
-        date: dq != -1 ? mh[dq] : todayText(),
-        sport: tp != -1 ? mh[tp] : "Other",
-        duration: fn != -1 ? mh[fn] : 0,
-        effort: jd != -1 ? mh[jd] : 5,
-        peak: mh[zs],
-        oneMin: mh[an],
-        sore: ee
-      }, nz);
+      let gz;
+      if (dq == -1) {
+        gz = todayText();
+      } else {
+        gz = uv[dq];
+      }
+      let ss = "Other";
+      if (tp != -1) {
+        ss = uv[tp];
+      }
+      let md = 0;
+      if (fn != -1) {
+        md = uv[fn];
+      }
+      let qo = 5;
+      if (jd != -1) {
+        qo = uv[jd];
+      }
 
+      let uf = {};
+      uf.date = gz;
+      uf.sport = ss;
+      uf.duration = md;
+      uf.effort = qo;
+      uf.peak = uv[zs];
+      uf.oneMin = uv[an];
+      uf.sore = ee;
+      let nv = sessionFromOld(uf, nz);
       if (nv != null) {
         wq.push(nv);
       }
@@ -1192,16 +1411,24 @@ function importCSV(aj) {
 }
 
 function cleanRow(yh) {
-  let uv = yh.trim().split(",");
-  for (let nz = 0; nz < uv.length; nz++) {
-    uv[nz] = uv[nz].trim().replace(/"/g, "");
+  let bj = yh.trim();
+  let uv = bj.split(",");
+  for (let nz = 0; nz < uv.length; nz = nz + 1) {
+    let pf = uv[nz].trim();
+    let ca = "";
+    for (let wg = 0; wg < pf.length; wg = wg + 1) {
+      if (pf[wg] != '"') {
+        ca = ca + pf[wg];
+      }
+    }
+    uv[nz] = ca;
   }
   return uv;
 }
 
 function findColumn(xg, jj) {
-  for (let nz = 0; nz < xg.length; nz++) {
-    for (let wg = 0; wg < jj.length; wg++) {
+  for (let nz = 0; nz < xg.length; nz = nz + 1) {
+    for (let wg = 0; wg < jj.length; wg = wg + 1) {
       if (xg[nz].includes(jj[wg])) {
         return nz;
       }
@@ -1221,7 +1448,10 @@ function drawTrend(gb) {
 
   let xl = ci.clientWidth;
   let lz = ci.clientHeight;
-  let ts = window.devicePixelRatio || 1;
+  let ts = window.devicePixelRatio;
+  if (!ts) {
+    ts = 1;
+  }
   ci.width = xl * ts;
   ci.height = lz * ts;
   mn.scale(ts, ts);
@@ -1233,7 +1463,7 @@ function drawTrend(gb) {
   let cr = lz - 28;
 
   let pr = 40;
-  for (let nz = 0; nz < gg.length; nz++) {
+  for (let nz = 0; nz < gg.length; nz = nz + 1) {
     if (gg[nz].drop + 5 > pr) {
       pr = gg[nz].drop + 5;
     }
@@ -1250,7 +1480,7 @@ function drawTrend(gb) {
   mn.font = "12px Arial";
   mn.lineWidth = 1;
 
-  for (let zb = 0; zb <= pr; zb += 10) {
+  for (let zb = 0; zb <= pr; zb = zb + 10) {
     mn.strokeStyle = "#34508A";
     mn.beginPath();
     mn.moveTo(ie, yFor(zb));
@@ -1276,7 +1506,7 @@ function drawTrend(gb) {
   mn.strokeStyle = "#7FE0C8";
   mn.lineWidth = 2;
   mn.beginPath();
-  for (let nz = 0; nz < gg.length; nz++) {
+  for (let nz = 0; nz < gg.length; nz = nz + 1) {
     if (nz == 0) {
       mn.moveTo(xFor(nz), yFor(gg[nz].drop));
     } else {
@@ -1286,7 +1516,7 @@ function drawTrend(gb) {
   mn.stroke();
 
   gl = [];
-  for (let nz = 0; nz < gg.length; nz++) {
+  for (let nz = 0; nz < gg.length; nz = nz + 1) {
     let kk = xFor(nz);
     let nl = yFor(gg[nz].drop);
     mn.fillStyle = "#7FE0C8";
@@ -1351,7 +1581,7 @@ function showTrendPoint(ri) {
   let od = ri.clientX - zc.left;
 
   let rl = gl[0];
-  for (let nz = 1; nz < gl.length; nz++) {
+  for (let nz = 1; nz < gl.length; nz = nz + 1) {
     if (Math.abs(gl[nz].x - od) < Math.abs(rl.x - od)) {
       rl = gl[nz];
     }
